@@ -13,18 +13,17 @@ class recipe extends Model
     {
         return $this->belongsTo(User::class);
     }
-    public function categoria()
+    public function categories()
     {
-        return $this->belongsTo(Categoria::class);
+        return $this->belongsToMany(Category::class);
     }
 
-    public function pasos()
+    public function ingredients()
     {
-        return $this->hasMany(Pasos::class);
+        return $this->hasMany(Ingredient::class);
     }
 
-    public function ingredientes()
-    {
-        return $this->hasMany(Ingredientes::class);
+    public function image(){
+        return $this->morphOne(Image::class, 'imageable');
     }
 }

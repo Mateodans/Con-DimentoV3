@@ -18,6 +18,7 @@ return new class extends Migration
 
             $table->string('nombre');
             $table->string('slug');
+            $table->boolean('internacionales');
 
             $table->timestamps();
         });
