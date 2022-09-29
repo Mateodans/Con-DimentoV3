@@ -19,12 +19,17 @@ class categorySeeder extends Seeder
         // DB::table('categories')->insertInTo('name')([
         //     'name' => 'Vegetariano', 'Carnes', 'Pastas', 'Pescados', 'Sin TACC', 'Sin gluten', 'Postres']);
 
-        //     DB::table('categories')->insertInTo('internaciones')([
-        //         'name' => 'Argentina', 'Italiana', 'Yankee', 'Española', 'Asiatica']);
+        // DB::table('categories')->insertInTo('internacionales')([
+        //     'name' => 'Argentina', 'Italiana', 'Yankee', 'Española', 'Asiatica']);
 
         Category::create([
-            'name' => 'pollo al horno',
-            'internacional' => 'false',
+            'name' => 'carnes',
+            'internacional' => false,
         ]);
+        Category::create([
+            'name' => 'Argentina',
+            'internacional' => true,
+        ]);
+
     }
 }

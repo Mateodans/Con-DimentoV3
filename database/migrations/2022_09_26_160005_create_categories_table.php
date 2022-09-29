@@ -16,9 +16,9 @@ return new class extends Migration
         Schema::create('categories', function (Blueprint $table) {
             $table->id();
 
-            $table->string('nombre');
-            $table->string('slug');
-            $table->boolean('internacionales');
+            $table->string('name');
+           
+            $table->boolean('internacional');
 
             $table->timestamps();
         });
