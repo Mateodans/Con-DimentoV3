@@ -20,9 +20,8 @@ class recipeSeeder extends Seeder
      */
     public function run()
     {
-        
+
         User::factory(1)->create();
-        
 
         Recipe::create([
             'title'=>'Asado al estilo argentino',
@@ -30,7 +29,7 @@ class recipeSeeder extends Seeder
             'steps'=>'1. Cortar la carne en trozos pequeños. 2. Salpimentar. 3. Cocinar en la parrilla.',
             'user_id'=>User::first()->id,
             'category_id'=>Category::first()->id
-            
+
         ]);
         ingredient::create([
             'name'=>'sal',
