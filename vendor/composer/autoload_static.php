@@ -570,7 +570,7 @@ class ComposerStaticInit3f76f41c069b80da49c2761db803580e
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
-        'App\\Http\\Controllers\\Nav' => __DIR__ . '/../..' . '/app/Http/Controllers/Nav.php',
+        'App\\Http\\Controllers\\RecipeController' => __DIR__ . '/../..' . '/app/Http/Controllers/RecipeController.php',
         'App\\Http\\Kernel' => __DIR__ . '/../..' . '/app/Http/Kernel.php',
         'App\\Http\\Livewire\\Navigation' => __DIR__ . '/../..' . '/app/Http/Livewire/Navigation.php',
         'App\\Http\\Middleware\\Authenticate' => __DIR__ . '/../..' . '/app/Http/Middleware/Authenticate.php',

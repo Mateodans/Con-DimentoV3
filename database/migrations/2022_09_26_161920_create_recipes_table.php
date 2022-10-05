@@ -23,10 +23,8 @@ return new class extends Migration
             $table->enum('status', [1, 2])->default(1);
 
             $table->unsignedBigInteger('user_id');
-            $table->unsignedBigInteger('category_id');
 
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
 
             $table->timestamps();
         });

@@ -11,6 +11,6 @@ class Category extends Model
 
     public function recipes()
     {
-        return $this->hasMany(Recipe::class);
+        return $this->belongsToMany(Recipe::class);
     }
 }

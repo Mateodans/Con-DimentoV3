@@ -15,7 +15,7 @@ return array(
     'App\\Console\\Kernel' => $baseDir . '/app/Console/Kernel.php',
     'App\\Exceptions\\Handler' => $baseDir . '/app/Exceptions/Handler.php',
     'App\\Http\\Controllers\\Controller' => $baseDir . '/app/Http/Controllers/Controller.php',
-    'App\\Http\\Controllers\\Nav' => $baseDir . '/app/Http/Controllers/Nav.php',
+    'App\\Http\\Controllers\\RecipeController' => $baseDir . '/app/Http/Controllers/RecipeController.php',
     'App\\Http\\Kernel' => $baseDir . '/app/Http/Kernel.php',
     'App\\Http\\Livewire\\Navigation' => $baseDir . '/app/Http/Livewire/Navigation.php',
     'App\\Http\\Middleware\\Authenticate' => $baseDir . '/app/Http/Middleware/Authenticate.php',

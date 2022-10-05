@@ -1,7 +1,8 @@
 <x-app-layout>
 
+    
     <div class="conteiner py-8">
-        <h1 class="text-4xl font-bold text-gray-600">{{$recipe->name}}</h1>
+        <h1 class="text-4xl font-bold text-gray-600">{{$recipe->title}}</h1>
 
         <div class="text-lg text-gray-500 mb-2">
             {{$recipe->body}}
@@ -22,7 +23,11 @@
             </div>
 
             <aside>
-                <h1>Mas en {{$recipe->category->name}}</h1>
+                <h1>Mas en 
+                @foreach ($recipe->categories as $category)
+                {{$category->name}}
+                @endforeach
+                </h1>
             </aside>
 
         </div>
