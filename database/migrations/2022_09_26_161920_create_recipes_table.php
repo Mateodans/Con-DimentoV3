@@ -16,11 +16,12 @@ return new class extends Migration
         Schema::create('recipes', function (Blueprint $table) {
             $table->id();
 
-           
             $table->text('title');
+            $table->string('slug');
 
             $table->longText('body');
             $table->text('steps');
+            $table->enum('status', [1, 2])->default(1);
 
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('category_id');
