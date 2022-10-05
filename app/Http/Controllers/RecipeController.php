@@ -16,11 +16,13 @@ class RecipeController extends Controller
     public function show(recipe $recipe){
 
         $similar = recipe::where('category_id', $recipe->category_id)
-                            ->where('status', 2)
+                            ->where('status', 1)
                             ->latest('id')
                             ->take(4)
                             ->get();
 
-        return view('recipes.show', compact('recipes', 'similar'));
+        return view('recipes.index', [
+            'recipes => $recipes'
+        ]);
     }
 }
