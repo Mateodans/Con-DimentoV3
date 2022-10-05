@@ -17,7 +17,6 @@ return new class extends Migration
             $table->id();
 
             $table->text('title');
-            $table->string('slug');
 
             $table->longText('body');
             $table->text('steps');

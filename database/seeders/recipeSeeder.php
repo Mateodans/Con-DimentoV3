@@ -37,8 +37,8 @@ class recipeSeeder extends Seeder
         ]);
 
         ingredientsrecipe::create([
-            'recipe_id'=>'1',
-            'ingredient_id'=>'1'
+            'recipe_id'=>recipe::first()->id,
+            'ingredient_id'=>ingredient::first()->id
         ]);
 
     }

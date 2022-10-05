@@ -8,8 +8,10 @@ use App\Models\recipe;
 class RecipeController extends Controller
 {
     public function index(){
-        $recipes = recipe::where('status', 2)->latest('id')->paginate(8);
+        $recipes = recipe::where('status', 1)->latest('id')->paginate(8);
 
-        return view('recipe.index', compact('recipes'));
+        return view('recipes.index', [
+            'recipes' => $recipes
+        ]);
     }
 }

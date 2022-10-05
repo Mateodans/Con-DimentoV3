@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\image;
+use App\Models\recipe;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
@@ -18,8 +19,8 @@ class imageSeeder extends Seeder
     {
         image::create([
        'url'=> 'public/storage',
-       'imageable_id'=> '1',
-       'imageable_type' => '1'
+       'imageable_id'=> recipe::first()->id,
+       'imageable_type' => recipe::class
         ]);
     }
 }

@@ -18,7 +18,6 @@ class CategoryFactory extends Factory
     {
         return [
             'name' => $this->faker->name(),
-            'slug' => $this->faker->name(),
             'international' => $this->faker->boolean(),
             ];
     }
