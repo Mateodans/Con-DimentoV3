@@ -7,6 +7,8 @@ Route::get('/', [RecipeController::class, 'index'])->name('recipes.index');
 
 Route::get('/resources/views/navigation-menu.blade.php', [Controlador::class, 'function']);
 
+Route::get('recipes/{recipe}', [RecipeController::class, 'show'])->name('recipes.show');
+
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),

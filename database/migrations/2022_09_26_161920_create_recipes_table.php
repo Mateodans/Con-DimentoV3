@@ -17,9 +17,9 @@ return new class extends Migration
             $table->id();
 
             $table->text('title');
-
             $table->longText('body');
             $table->text('steps');
+
             $table->enum('status', [1, 2])->default(1);
 
             $table->unsignedBigInteger('user_id');
