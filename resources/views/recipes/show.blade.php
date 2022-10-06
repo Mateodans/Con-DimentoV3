@@ -1,7 +1,6 @@
 <x-app-layout>
 
-    
-    <div class="conteiner py-8">
+    <div class="container py-8">
         <h1 class="text-4xl font-bold text-gray-600">{{$recipe->title}}</h1>
 
         <div class="text-lg text-gray-500 mb-2">
@@ -13,7 +12,7 @@
             <div class="col-span-2 ">
 
                 <figure>
-                    <img  class="w-full h-80 object-cover object-center" src="{{Storage::url($recipe->image->url)}}" alt="">
+                    <img  class="w-full h-80 object-cover object-center" src="{{Storage::url($recipe->image)}}" alt="">
                 </figure>
 
                 <div class="text-base text-gray-500 mt-4">
