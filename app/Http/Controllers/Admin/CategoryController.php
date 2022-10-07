@@ -47,7 +47,10 @@ class CategoryController extends Controller
      */
     public function show(Category $category)
     {
-        return view('admin.categories.show');
+
+        $categories = Category::all();
+
+        return view('admin.categories.show', compact('categories'));
     }
 
     /**
@@ -58,7 +61,7 @@ class CategoryController extends Controller
      */
     public function edit(Category $category)
     {
-        return view('admin.categories.edit');
+        return view('admin.categories.edit', compact('category'));
     }
 
     /**
