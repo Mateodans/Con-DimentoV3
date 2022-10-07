@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use App\Models\ingredient;
 use Illuminate\Http\Request;
 use App\Models\recipe;
 
@@ -33,6 +34,17 @@ class RecipeController extends Controller
         return view('recipes.category', [
             'recipes' => $recipes,
             'category' => $category
+        ]);
+    }
+
+    public function ingredient(ingredient $ingredient){
+
+        $recipes = $ingredient->recipes()->wherePivot('ingredient_id', '=', $ingredient->id)->get();
+
+        // return $ingredient->recipes()->where()->get();
+        return view('recipes.ingredient', [
+            'recipes' => $recipes,
+            'ingredient' => $ingredient
         ]);
     }
 

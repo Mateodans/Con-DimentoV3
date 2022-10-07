@@ -11,6 +11,9 @@ Route::get('recipes/{recipe}', [RecipeController::class, 'show'])->name('recipes
 
 Route::get('category/{category}', [RecipeController::class, 'category'])->name('recipes.category');
 
+Route::get('ingredient/{ingredient}', [RecipeController::class, 'ingredient'])->name('recipes.ingredient');
+
+
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
