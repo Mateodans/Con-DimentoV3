@@ -31,7 +31,7 @@
                 <div class="form-group">
                     {!! Form::label('name', 'Name') !!}
                     {!! Form::text('name', null, ['class' => 'form-control', 'placeholder' => 'Enter the category name']) !!}
-                    {!! Form::select('nacionalidad', array('internacional' => 'internacional', 'nacional' => 'nacional'), 'internacional');!!}
+                    {!! Form::select('nacionalidad', array('internacional' => 'internacional', 'nacional' => 'nacional'), 'internacional`');!!}
                     @error('name')
                         <span class="text-danger">{{ $message }}</span>
                     @enderror
