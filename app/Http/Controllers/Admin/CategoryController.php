@@ -39,11 +39,12 @@ class CategoryController extends Controller
     public function store(Request $request)
     {
 
-        $request->validate([
+        
+        $formFields=$request->validate([
             'name' => 'required',
+            'internacional'=>'required'
         ]);
-
-        $category = Category::create($request->all());
+        $category = Category::create($formFields);
 
         return redirect()->route('admin.categories.edit', $category);
     }
@@ -61,6 +62,7 @@ class CategoryController extends Controller
 
         return view('admin.categories.show', compact('category'));
     }
+
 
     /**
      * Show the form for editing the specified resource.

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\CategoryController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RecipeController;
 use App\Http\Controllers\Admin\HomeController;
@@ -15,6 +16,7 @@ Route::get('category/{category}', [RecipeController::class, 'category'])->name('
 Route::get('ingredient/{ingredient}', [RecipeController::class, 'ingredient'])->name('recipes.ingredient');
 
 Route::get('/admin', [HomeController::class, 'index'])->name('admin.index');
+
 
 
 Route::middleware([
