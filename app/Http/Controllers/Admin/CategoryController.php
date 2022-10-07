@@ -39,14 +39,13 @@ class CategoryController extends Controller
     public function store(Request $request)
     {
 
-        
         $formFields=$request->validate([
             'name' => 'required',
             'internacional'=>'required'
         ]);
         $category = Category::create($formFields);
 
-        return redirect()->route('admin.categories.edit', $category);
+        return redirect()->route('admin.categories.edit', $category)->with('info', 'The category was created successfully');
     }
 
     /**
@@ -84,7 +83,14 @@ class CategoryController extends Controller
      */
     public function update(Request $request, Category $category)
     {
-        //
+        $formFields=$request->validate([
+            'name' => 'required',
+            'internacional'=>'required'
+        ]);
+
+        $category = Category::create($formFields);
+
+        return redirect()->route('admin.categories.edit', $category)->with('info', 'The categories was updated successfully');
     }
 
     /**
@@ -95,6 +101,8 @@ class CategoryController extends Controller
      */
     public function destroy(Category $category)
     {
-        //
+        $category->delete();
+
+        return redirect()->route('admin.categories.index')->with('info', 'The category was deleted successfully');
     }
 }

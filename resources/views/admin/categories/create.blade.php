@@ -13,17 +13,17 @@
                 @csrf
                 <div class="form-group">
                     <label for="name">Name</label>
-                    <input type="text" name="name" id="name" class="form-control" value="{{ old('name') }}">
+                    <input type="text" name="name" id="name" class="form-control" placeholder="Nombre de la categoria" value="{{ old('name') }}">
                 </div>
                 <div class="form-group">
                     <label for="internacional">Internacional</label>
-                    <input type="number" name="internacional" id="internacional" class="form-control" value="{{ old('internacional') }}">
+                    <input type="number" name="internacional" id="internacional" class="form-control" placeholder="Si la categoria es Internacional pulse 1 sino 0" value="{{ old('internacional') }}">
                 </div>
                 <div class="form-group">
                     <button type="submit" class="btn btn-success">Save</button>
                 </div>
-            {{-- </form>
-            {!! Form::open(['route' => 'admin.categories.store']) !!}
+            </form>
+            {{-- {!! Form::open(['route' => 'admin.categories.store']) !!}
                 <div class="form-group">
                     {!! Form::label('name', 'Name') !!}
                     {!! Form::text('name', null, ['class' => 'form-control', 'placeholder' => 'Enter the category name']) !!}
