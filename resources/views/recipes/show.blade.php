@@ -7,12 +7,12 @@
             {{$recipe->body}}
         </div>
 
-        <div class="grid grid-cols-3 gap-6">
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
 
-            <div class="col-span-2 ">
+            <div class="lg:col-span-2 ">
 
                 <figure>
-                    <img  class="w-full h-80 object-cover object-center" src="{{Storage::url($recipe->image)}}" alt="">
+                    <img  class="w-full h-80 object-cover object-center" src="{{Storage::url($recipe->image)}}" alt="{{$recipe->title}}">
                 </figure>
 
                 <div class="text-base text-gray-500 mt-4">
@@ -22,11 +22,21 @@
             </div>
 
             <aside>
-                <h1>Mas en 
+                <h1 class="text-2xl font-bold text-gray-600 mb-4s">Mas en
                 @foreach ($recipe->categories as $category)
                 {{$category->name}}
                 @endforeach
                 </h1>
+                <ul>
+                    @foreach ($similar as $similares)
+                    <li class="mb-4">
+                        <a class="flex" href="{{route('recipes.show', $similares)}}">
+                            <img class="w-36 h-20 object-cover object-center" src="{{Storage::url($similares->image)}}" alt="">
+                            <span class="ml-2 text-gray-600">{{$similares->title}}</span>
+                        </a>
+                    </li>
+                    @endforeach
+                </ul>
             </aside>
 
         </div>

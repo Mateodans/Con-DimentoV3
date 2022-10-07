@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use Illuminate\Http\Request;
 use App\Models\recipe;
+
 
 class RecipeController extends Controller
 {
@@ -16,11 +18,6 @@ class RecipeController extends Controller
 
     public function show(recipe $recipe){
 
-        // $similar = recipe::where('category_id', $recipe->category_id)
-        //                     ->where('status', 1)
-        //                     ->latest('id')
-        //                     ->take(4)
-        //                     ->get();
         $similar = $recipe->categories()->wherePivot('recipe_id', '=', $recipe->id)->get();
 
         return view('recipes.show', [
@@ -28,4 +25,15 @@ class RecipeController extends Controller
             'similar' => $similar
         ]);
     }
+
+    public function category(Category $category){
+
+        $recipes = $category->recipes()->wherePivot('category_id', '=', $category->id)->get();
+
+        return view('recipes.category', [
+            'recipes' => $recipes,
+            'category' => $category
+        ]);
+    }
+
 }
