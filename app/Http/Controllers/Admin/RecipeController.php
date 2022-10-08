@@ -8,6 +8,7 @@ use App\Models\Recipe;
 use App\Models\Category;
 use App\Models\ingredient;
 use App\Http\Requests\StoreRecipeRequest;
+use Illuminate\Support\Facades\Storage;
 
 class RecipeController extends Controller
 {
@@ -43,12 +44,14 @@ class RecipeController extends Controller
      */
     public function store(StoreRecipeRequest $request)
     {
-        $recipe = Recipe::create($request->all());
+        return Storage::put('recipes', $request->file('file'));
 
-            if($request->ingredient){
-                $recipe->ingredients()->attach($request->ingredient);
-            }
-            return redirect()->route('admin.recipes.edit')->with('info', 'La receta se creó con éxito');
+        // $recipe = Recipe::create($request->all());
+
+        //     if($request->ingredient){
+        //         $recipe->ingredients()->attach($request->ingredient);
+        //     }
+        //     return redirect()->route('admin.recipes.edit')->with('info', 'La receta se creó con éxito');
 
     }
 

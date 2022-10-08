@@ -30,6 +30,7 @@ class StoreRecipeRequest extends FormRequest
         $rules = [
             'name' => 'required',
             'status' => 'required|in:1,2',
+            'file' => 'required|image',
         ];
 
         if($this->status == 2){

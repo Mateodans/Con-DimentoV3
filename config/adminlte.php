@@ -325,7 +325,7 @@ return [
         [
             'text' => 'Ingredients',
             'route'  => 'admin.ingredients.index',
-            'icon' => 'fas fa-fw fa-lock',
+            'icon' => 'fas fa-utensils fa-fw',
         ],
         ['header' => 'Opcion Recipes'],
         [

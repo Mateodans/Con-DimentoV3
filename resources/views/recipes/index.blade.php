@@ -8,7 +8,8 @@
             @foreach ($recipes as $recipe)
             <div class="container py-8">
                 <h1 class="text-4xl font-bold text-gray-600">{{$recipe->title}}</h1>
-            <article class="w-full h-80 bg-cover bg-center @if($loop->first) md:col-span-2 @endif" style="background-image: url({{Storage::url($recipe->image->url)}})">
+            <article class="w-full h-80 bg-cover bg-center @if($loop->first) md:col-span-2 @endif" style="background-image: url(
+                @if($recipe->image) {{Storage::url($recipe->image->url)}} @else https://cdn.pixabay.com/photo/2017/06/06/22/37/italian-cuisine-2378729_1280.jpg @endif)">
                     <div class="w-full h-full px-8 flex flex-col justify-center">
                         <h1 class="text-4xl leading-8 font-bold mt-2">
                             <a href="{{route('recipes.show', $recipe)}}" class="inline-block px-3 h-6 bg-gray-600 rounded-full">

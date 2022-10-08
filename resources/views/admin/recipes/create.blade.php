@@ -9,7 +9,7 @@
 @section('content')
     <div class="card">
         <div class="card-body">
-            {!! Form::open(['route' => 'admin.recipes.store', 'autocomplete' => 'off']) !!}
+            {!! Form::open(['route' => 'admin.recipes.store', 'autocomplete' => 'off', 'files' => true]) !!}
 
             {!! Form::hidden('user_id', auth()->user()->id) !!}
 
@@ -70,8 +70,30 @@
                     @enderror
                 </div>
 
-                <div class="form-group">
-                    {!! Form::label('step', 'Steps:') !!}
+                <div class="row">
+                    <div class="col">
+                        <div class="image-wrapper">
+                            @isset ($recipe->image)
+                                <img id="picture" src="{{Storage::url($recipe->image->url)}}" alt="">
+                            @else
+                                <img id="picture" src="https://cdn.pixabay.com/photo/2017/06/06/22/37/italian-cuisine-2378729_1280.jpg" alt="">
+                            @endisset
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="form-group">
+                            {!! Form::label('file', 'Image of the recipe') !!}
+                            {!! Form::file('file', ['class' => 'form-control-file', 'accept' => 'image/*']) !!}
+                            @error('file')
+                                <span class="text-danger">{{$message}}</span>
+                            @enderror
+                        </div>
+                        <p>Characteristics that the image should have</p>
+                    </div>
+                </div>
+
+                <div class="form-group ">
+                    {!! Form::label('step', 'Steps:', ['class' => 'mt-3']) !!}
                     {!! Form::textarea('step', null, ['class' => 'form-control', 'placeholder' => 'Enter the steps of the recipe']) !!}
 
                     @error('steps')
@@ -86,7 +108,19 @@
 @stop
 
 @section('css')
-    <link rel="stylesheet" href="/css/admin_custom.css">
+    <style>
+        .image-wrapper {
+            position: relative;
+            padding-bottom: 56.25%;
+        }
+
+        .image-wrapper img {
+            position: absolute;
+            object-fit: cover;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
 @stop
 
 @section('js')
@@ -103,5 +137,18 @@
             .catch( error => {
                 console.error( error );
             } );
+
+        document.getElementById("file").addEventListener('change', cambiarImagen);
+
+        function cambiarImagen(event){
+            var file = event.target.files[0];
+
+            var reader = new FileReader();
+            reader.onload = (event) => {
+                document.getElementById("picture").setAttribute('src', event.target.result);
+            };
+
+            reader.readAsDataURL(file);
+        }
     </script>
 @stop
