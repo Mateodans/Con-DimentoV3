@@ -84,7 +84,7 @@
         @endauth
       </div>
     </div>
-  
+
     <!-- Mobile menu, show/hide based on menu state. -->
     <div class="sm:hidden" id="mobile-menu" x-show="open" x-on:click.away="open = false">
       <div class="space-y-1 px-2 pt-2 pb-3">

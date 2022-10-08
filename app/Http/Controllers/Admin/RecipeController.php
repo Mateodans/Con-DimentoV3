@@ -19,7 +19,10 @@ class RecipeController extends Controller
      */
     public function index()
     {
-         return view('admin.recipes.index');
+
+        $recipes = Recipe::latest('id')->paginate(10);
+
+         return view('admin.recipes.index', compact('recipes'));
     }
 
     /**
@@ -44,14 +47,21 @@ class RecipeController extends Controller
      */
     public function store(StoreRecipeRequest $request)
     {
-        return Storage::put('recipes', $request->file('file'));
+        // return Storage::put('recipes', $request->file('file'));
 
-        // $recipe = Recipe::create($request->all());
+        $recipe = Recipe::create($request->all());
 
-        //     if($request->ingredient){
-        //         $recipe->ingredients()->attach($request->ingredient);
-        //     }
-        //     return redirect()->route('admin.recipes.edit')->with('info', 'La receta se creó con éxito');
+        if($request->file('file')){
+            $url = Storage::put('recipes', $request->file('file'));
+            $recipe->image()->create([
+                'url' => $url
+            ]);
+        }
+
+            if($request->ingredient){
+                $recipe->ingredients()->attach($request->ingredient);
+            }
+            return redirect()->route('admin.recipes.edit')->with('info', 'La receta se creó con éxito');
 
     }
 

@@ -104,6 +104,6 @@ class IngredientController extends Controller
         $ingredient->delete();
 
         return redirect()->route('admin.ingredients.index')
-            ->with('success', 'Ingredient deleted successfully');
+            ->with('info', 'Ingredient deleted successfully');
     }
 }
