@@ -17,8 +17,8 @@ return new class extends Migration
             $table->id();
 
             $table->text('title');
-            $table->longText('body');
-            $table->text('steps');
+            $table->longText('body')->nullable();
+            $table->text('steps')->nullable();
 
             $table->enum('status', [1, 2])->default(1);
 

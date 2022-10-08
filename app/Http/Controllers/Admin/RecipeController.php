@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Recipe;
 use App\Models\Category;
 use App\Models\ingredient;
+use App\Http\Requests\StoreRecipeRequest;
 
 class RecipeController extends Controller
 {
@@ -40,9 +41,15 @@ class RecipeController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreRecipeRequest $request)
     {
-        //
+        $recipe = Recipe::create($request->all());
+
+            if($request->ingredient){
+                $recipe->ingredients()->attach($request->ingredient);
+            }
+            return redirect()->route('admin.recipes.edit')->with('info', 'La receta se creó con éxito');
+
     }
 
     /**

@@ -11,6 +11,8 @@
         <div class="card-body">
             {!! Form::open(['route' => 'admin.recipes.store', 'autocomplete' => 'off']) !!}
 
+            {!! Form::hidden('user_id', auth()->user()->id) !!}
+
             <div class="form-group">
                 {!! Form::label('name', 'Name') !!}
                 {!! Form::text('name', null, ['class' => 'form-control', 'placeholder' => 'Enter the recipe name']) !!}
@@ -23,7 +25,7 @@
                 {!! Form::label('body', 'body') !!}
                 {!! Form::textarea('name', null, ['class' => 'form-control', 'placeholder' => 'Enter the recipe descripcion']) !!}
 
-                @error('name')
+                @error('body')
                     <span class="text-danger">{{$message}}</span>
                 @enderror
             </div>
@@ -48,25 +50,31 @@
                         </div>
                     @endforeach
                 </div>
+                @error('ingredients')
+                    <span class="text-danger">{{$message}}</span>
+                @enderror
 
-                <div class="form-group">
+                <div class="form-group mt-3">
                     <p class="font-weight-bold">Estado</p>
+
                     <label class="mr-2">
                         {!! Form::radio('status', 1, true) !!}
                         Draft copy
                     </label>
-
                     <label class="mr-2">
                         {!! Form::radio('status', 2) !!}
                         Published
                     </label>
+                    @error('status')
+                        <span class="text-danger">{{$message}}</span>
+                    @enderror
                 </div>
 
                 <div class="form-group">
                     {!! Form::label('step', 'Steps:') !!}
                     {!! Form::textarea('step', null, ['class' => 'form-control', 'placeholder' => 'Enter the steps of the recipe']) !!}
 
-                    @error('preparation')
+                    @error('steps')
                         <span class="text-danger">{{$message}}</span>
                     @enderror
                 </div>
