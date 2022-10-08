@@ -71,7 +71,7 @@ class IngredientController extends Controller
      */
     public function edit(Ingredient $ingredient)
     {
-        return view('admin.ingredients.edit', compact('ingredient'));
+        return view('admin.ingredients.edit', compact('ingredient'))->with('success', 'Ingredient updated successfully.');
     }
 
     /**
@@ -83,7 +83,14 @@ class IngredientController extends Controller
      */
     public function update(Request $request,Ingredient $ingredient)
     {
-        //
+        $request->validate([
+            'name' => 'required',
+        ]);
+
+        $ingredient->update($request->all());
+
+        return redirect()->route('admin.ingredients.index', compact('ingredient'))
+            ->with('success', 'Ingredient updated successfully');
     }
 
     /**
@@ -94,6 +101,9 @@ class IngredientController extends Controller
      */
     public function destroy(Ingredient $ingredient)
     {
-        //
+        $ingredient->delete();
+
+        return redirect()->route('admin.ingredients.index')
+            ->with('success', 'Ingredient deleted successfully');
     }
 }
