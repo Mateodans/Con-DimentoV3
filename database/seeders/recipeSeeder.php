@@ -34,7 +34,6 @@ class recipeSeeder extends Seeder
         $recipe->categories()->attach($recipe->id);
         ingredient::create([
             'name'=>'sal',
-            'amount'=>'20g'
         ]);
 
         ingredientsrecipe::create([

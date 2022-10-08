@@ -13,7 +13,7 @@ class Category extends Model
         'name',
         'internacional',
     ];
-    
+
 
     public function recipes()
     {
