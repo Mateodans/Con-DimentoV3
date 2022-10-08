@@ -10,7 +10,8 @@
 @stop
 
 @section('content')
-    @livewire('admin.recipes-index')
+    {{-- @livewire('admin.recipes-index')  --}}
+    <x-recipes-index :recipes="$recipes" />
 @stop
 
 @section('css')

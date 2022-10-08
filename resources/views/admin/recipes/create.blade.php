@@ -14,16 +14,16 @@
             {!! Form::hidden('user_id', auth()->user()->id) !!}
 
             <div class="form-group">
-                {!! Form::label('name', 'Name') !!}
-                {!! Form::text('name', null, ['class' => 'form-control', 'placeholder' => 'Enter the recipe name']) !!}
+                {!! Form::label('title', 'title') !!}
+                {!! Form::text('title', null, ['class' => 'form-control', 'placeholder' => 'Enter the recipe name']) !!}
 
-                @error('name')
+                @error('title')
                     <span class="text-danger">{{$message}}</span>
                 @enderror
             </div>
             <div class="form-group">
                 {!! Form::label('body', 'body') !!}
-                {!! Form::textarea('name', null, ['class' => 'form-control', 'placeholder' => 'Enter the recipe descripcion']) !!}
+                {!! Form::textarea('body', null, ['class' => 'form-control', 'placeholder' => 'Enter the recipe descripcion']) !!}
 
                 @error('body')
                     <span class="text-danger">{{$message}}</span>
@@ -83,7 +83,7 @@
                     <div class="col">
                         <div class="form-group">
                             {!! Form::label('file', 'Image of the recipe') !!}
-                            {!! Form::file('file', ['class' => 'form-control-file', 'accept' => 'image/*']) !!}
+                            {!! Form::file('file', null, ['class' => 'form-control-file', 'accept' => 'image/*']) !!}
                             @error('file')
                                 <span class="text-danger">{{$message}}</span>
                             @enderror
@@ -96,7 +96,7 @@
                     {!! Form::label('step', 'Steps:', ['class' => 'mt-3']) !!}
                     {!! Form::textarea('step', null, ['class' => 'form-control', 'placeholder' => 'Enter the steps of the recipe']) !!}
 
-                    @error('steps')
+                    @error('step')
                         <span class="text-danger">{{$message}}</span>
                     @enderror
                 </div>
