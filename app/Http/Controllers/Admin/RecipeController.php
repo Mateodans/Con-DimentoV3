@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Recipe;
+use App\Models\Category;
+use App\Models\ingredient;
 
 class RecipeController extends Controller
 {
@@ -25,7 +27,11 @@ class RecipeController extends Controller
      */
     public function create()
     {
-        return view('admin.recipes.create');
+
+        $categories = Category::pluck('name', 'id');
+        $ingredients = Ingredient::all();
+
+        return view('admin.recipes.create', compact('categories', 'ingredients'));
     }
 
     /**

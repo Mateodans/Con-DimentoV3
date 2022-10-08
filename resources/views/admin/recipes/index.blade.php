@@ -3,6 +3,9 @@
 @section('title', 'Con-Dimento')
 
 @section('content_header')
+
+    <a href="{{route('admin.recipes.create')}}" class="btn btn-secondary btn-sm float-right">New Recipe</a>
+
     <h1>List of Recipes</h1>
 @stop
 
