@@ -85,6 +85,8 @@ class RecipeController extends Controller
     public function edit(Recipe $recipe)
     {
 
+        $this->authorize('author', $recipe);
+
         $categories = Category::pluck('name', 'id');
         $ingredients = Ingredient::all();
 
@@ -101,6 +103,9 @@ class RecipeController extends Controller
      */
     public function update(RecipeRequest $request, Recipe $recipe)
     {
+
+        $this->authorize('author', $recipe);
+
         $recipe->update($request->all());
 
         if($request->file('file')){
@@ -120,7 +125,7 @@ class RecipeController extends Controller
         }
 
         if($request->ingredient){
-            $recipe->ingredients()->attach($request->ingredient);
+            $recipe->ingredients()->sync($request->ingredient);
         }
 
         return redirect()->route('admin.recipes.edit', $recipe)->with('info', 'La receta se actualizó con éxito');
@@ -135,6 +140,11 @@ class RecipeController extends Controller
      */
     public function destroy(Recipe $recipe)
     {
-        //
+
+        $this->authorize('author', $recipe);
+
+        $recipe->delete();
+
+        return redirect()->route('admin.recipes.index')->with('info', 'La receta se eliminó con éxito');
     }
 }

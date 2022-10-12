@@ -11,8 +11,6 @@
     <div class="card-body">
         {!! Form::open(['route' => 'admin.recipes.store', 'autocomplete' => 'off', 'files' => true]) !!}
 
-        {!! Form::hidden('user_id', auth()->user()->id) !!}
-
         @include('admin.recipes.partials.forms')
 
                 {!! Form::submit('Create Recipe', ['class' => 'btn btn-primary']) !!}

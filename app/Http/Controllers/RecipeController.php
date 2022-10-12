@@ -10,7 +10,7 @@ use App\Models\recipe;
 
 class RecipeController extends Controller
 {
-    
+
     public function index(){
         $recipes = recipe::where('status', 1)->latest('id')->paginate(8);
 
@@ -18,6 +18,8 @@ class RecipeController extends Controller
     }
 
     public function show(recipe $recipe){
+
+        $this->authorize('published', $recipe);
 
         $similar = $recipe->categories()->wherePivot('recipe_id', '=', $recipe->id)->get();
 
