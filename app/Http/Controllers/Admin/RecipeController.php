@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Recipe;
 use App\Models\Category;
 use App\Models\ingredient;
-use App\Http\Requests\StoreRecipeRequest;
+use App\Http\Requests\RecipeRequest;
 use Illuminate\Support\Facades\Storage;
 
 class RecipeController extends Controller
@@ -45,7 +45,7 @@ class RecipeController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreRecipeRequest $request)
+    public function store(RecipeRequest $request)
     {
         // return Storage::put('recipes', $request->file('file'));
 
@@ -84,7 +84,12 @@ class RecipeController extends Controller
      */
     public function edit(Recipe $recipe)
     {
-        return view('admin.recipes.edit', compact('recipe'));
+
+        $categories = Category::pluck('name', 'id');
+        $ingredients = Ingredient::all();
+
+
+        return view('admin.recipes.edit', compact('recipe', 'categories', 'ingredients'));
     }
 
     /**
@@ -94,9 +99,32 @@ class RecipeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Recipe $recipe)
+    public function update(RecipeRequest $request, Recipe $recipe)
     {
-        //
+        $recipe->update($request->all());
+
+        if($request->file('file')){
+            $url = Storage::put('recipes', $request->file('file'));
+
+            if($recipe->image){
+                Storage::delete($recipe->image->url);
+
+                $recipe->image->update([
+                    'url' => $url
+                ]);
+            }else{
+                $recipe->image()->create([
+                    'url' => $url
+                ]);
+            }
+        }
+
+        if($request->ingredient){
+            $recipe->ingredients()->attach($request->ingredient);
+        }
+
+        return redirect()->route('admin.recipes.edit', $recipe)->with('info', 'La receta se actualizó con éxito');
+
     }
 
     /**

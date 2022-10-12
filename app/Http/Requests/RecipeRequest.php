@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreRecipeRequest extends FormRequest
+class RecipeRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -27,11 +27,18 @@ class StoreRecipeRequest extends FormRequest
      */
     public function rules()
     {
+
+        $recipe = $this->route()->parameters('recipe');
+
         $rules = [
             'name' => 'required',
             'status' => 'required|in:1,2',
             'file' => 'required|image',
         ];
+
+        if ($recipe){
+            $rules['file'] = 'image';
+        }
 
         if($this->status == 2){
             $rules = array_merge($rules, [
