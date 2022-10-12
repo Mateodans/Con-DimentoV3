@@ -69,7 +69,7 @@
                 <div class="col">
                     <div class="form-group">
                         {!! Form::label('file', 'Image of the recipe') !!}
-                        {!! Form::file('file', null, ['class' => 'form-control-file', 'accept' => 'image/*']) !!}
+                        {!! Form::file('file', ['accept' => 'image/*', 'class' => 'form-control-file']) !!}
                         @error('file')
                             <span class="text-danger">{{$message}}</span>
                         @enderror
