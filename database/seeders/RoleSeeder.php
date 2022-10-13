@@ -18,11 +18,15 @@ class RoleSeeder extends Seeder
     public function run()
     {
 
-        $admin = Role::create(['guard_name' => 'admin', 'name' => 'manager']);
+        $admin = Role::create(['name' => 'admin']);
         $verificado = Role::create(['name' => 'verificado']);
         $sinverificar = Role::create(['name' => 'sinVerificar']);
 
         Permission::create(['name' => 'admin.home'])->syncRoles([$admin]);
+
+        Permission::create(['name' => 'admin.users.edit'])->syncRoles([$admin]);
+        Permission::create(['name' => 'admin.users.index'])->syncRoles([$admin]);
+        Permission::create(['name' => 'admin.users.update'])->syncRoles([$admin]);
 
         Permission::create(['name' => 'admin.categories.index'])->syncRoles([$admin]);
         Permission::create(['name' => 'admin.categories.destroy'])->syncRoles([$admin]);

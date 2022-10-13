@@ -315,28 +315,39 @@ return [
             'text'        => 'Dashboard',
             'url'         => 'admin',
             'icon'        => 'fas fa-fw fa-tachometer-alt',
+            'can'         => 'admin.home'
+        ],
+        [
+            'text'        => 'Users',
+            'route'         => 'admin.users.index',
+            'icon'        => 'fas fa-users fa-faw',
+            'can'         => 'admin.users.index'
         ],
         ['header' => 'Administrator'],
         [
             'text' => 'Categories',
             'route'  => 'admin.categories.index',
             'icon' => 'fab fa-fw fa-buffer',
+            'can'         => 'admin.categories.index'
         ],
         [
             'text' => 'Ingredients',
             'route'  => 'admin.ingredients.index',
             'icon' => 'fas fa-utensils fa-fw',
+            'can'         => 'admin.ingredients.index'
         ],
         ['header' => 'Opcion Recipes'],
         [
             'text'       => 'List of recipes',
             'route'        => 'admin.recipes.index',
             'icon' => 'fas fa-fw fa-clipboard',
+            'can'         => 'admin.recipes.index'
         ],
         [
             'text'       => 'Create a new recipe',
             'route'        => 'admin.recipes.create',
             'icon' => 'fas fa-fw fa-file',
+            'can'         => 'admin.recipes.create'
         ],
     ],
 
