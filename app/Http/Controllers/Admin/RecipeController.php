@@ -9,6 +9,7 @@ use App\Models\Category;
 use App\Models\ingredient;
 use App\Http\Requests\RecipeRequest;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Cache;
 
 class RecipeController extends Controller
 {
@@ -55,7 +56,7 @@ class RecipeController extends Controller
      */
     public function store(RecipeRequest $request)
     {
-        // return Storage::put('recipes', $request->file('file'));
+
         $recipe = Recipe::create($request->all());
 
         if($request->file('file')){
@@ -64,6 +65,8 @@ class RecipeController extends Controller
                 'url' => $url
             ]);
         }
+
+        Cache::flush();
 
             if($request->ingredient){
                 $recipe->ingredients()->attach($request->ingredient);
@@ -129,6 +132,9 @@ class RecipeController extends Controller
                     'url' => $url
                 ]);
             }
+
+            Cache::flush();
+
         }
 
         if($request->ingredient){
@@ -151,6 +157,8 @@ class RecipeController extends Controller
         $this->authorize('author', $recipe);
 
         $recipe->delete();
+
+        Cache::flush();
 
         return redirect()->route('admin.recipes.index')->with('info', 'La receta se eliminó con éxito');
     }
