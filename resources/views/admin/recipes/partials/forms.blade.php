@@ -79,8 +79,8 @@
             </div>
 
             <div class="form-group ">
-                {!! Form::label('step', 'Steps:', ['class' => 'mt-3']) !!}
-                {!! Form::textarea('step', null, ['class' => 'form-control', 'placeholder' => 'Enter the steps of the recipe']) !!}
+                {!! Form::label('steps', 'Steps:', ['class' => 'mt-3']) !!}
+                {!! Form::textarea('steps', null, ['class' => 'form-control', 'placeholder' => 'Enter the steps of the recipe']) !!}
 
                 @error('step')
                     <span class="text-danger">{{$message}}</span>

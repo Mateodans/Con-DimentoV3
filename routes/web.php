@@ -7,7 +7,6 @@ use App\Http\Controllers\Admin\HomeController;
 
 Route::get('/', [RecipeController::class, 'index'])->name('recipes.index');
 
-Route::get('/resources/views/navigation-menu.blade.php', [Controlador::class, 'function']);
 
 Route::get('recipes/{recipe}', [RecipeController::class, 'show'])->name('recipes.show');
 
