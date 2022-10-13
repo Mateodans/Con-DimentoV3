@@ -5,11 +5,14 @@ use App\Http\Controllers\Admin\HomeController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\IngredientController;
 use App\Http\Controllers\Admin\RecipeController;
+use App\Http\Controllers\Admin\UserController;
 
-route::get('', [HomeController::class, 'index'])->name('admin.home');
+route::get('', [HomeController::class, 'index'])->middleware('can:admin.home')->name('admin.home');
 
-route::resource('categories', CategoryController::class)->names('admin.categories');
+route::resource('users', UserController::class)->only(['index', 'edit', 'update'])->names('admin.users');
 
-route::resource('ingredients', IngredientController::class)->names('admin.ingredients');
+route::resource('categories', CategoryController::class)->except('show')->names('admin.categories');
 
-route::resource('recipes', RecipeController::class)->names('admin.recipes');
+route::resource('ingredients', IngredientController::class)->except('show')->names('admin.ingredients');
+
+route::resource('recipes', RecipeController::class)->except('show')->names('admin.recipes');
