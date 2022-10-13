@@ -12,6 +12,14 @@ use Illuminate\Support\Facades\Storage;
 
 class RecipeController extends Controller
 {
+
+    public function __construct(){
+        $this->middleware('can:admin.recipes.index')->only('index');
+        $this->middleware('can:admin.recipes.create')->only('create', 'store');
+        $this->middleware('can:admin.recipes.edit')->only('edit', 'update');
+        $this->middleware('can:admin.recipes.destroy')->only('destroy');
+    }
+
     /**
      * Display a listing of the resource.
      *

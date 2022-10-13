@@ -9,6 +9,14 @@ use App\Models\Ingredient;
 
 class IngredientController extends Controller
 {
+
+    public function __construct(){
+        $this->middleware('can:admin.ingredientsrecipes.index')->only('index');
+        $this->middleware('can:admin.ingredients.create')->only('create', 'store');
+        $this->middleware('can:admin.ingredients.edit')->only('edit', 'update');
+        $this->middleware('can:admin.ingredients.destroy')->only('destroy');
+    }
+
     /**
      * Display a listing of the resource.
      *
