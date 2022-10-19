@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\RecipeRequest;
 use App\Models\Category;
 use App\Models\ingredient;
 use Illuminate\Http\Request;
@@ -32,15 +33,18 @@ class RecipeController extends Controller
 
     public function show(recipe $recipe){
 
-        $this->authorize('published', $recipe);
+        if(auth()->user()){
+            $similar = $recipe->categories()->wherePivot('recipe_id', '=', $recipe->id)->get();
+            return view('recipes.show', [
+                'recipe' => $recipe,
+                'similar' => $similar
+            ]);
+        }
+        else{
+            return redirect()->route('recipes.index');
+        }
+            }
 
-        $similar = $recipe->categories()->wherePivot('recipe_id', '=', $recipe->id)->get();
-
-        return view('recipes.show', [
-            'recipe' => $recipe,
-            'similar' => $similar
-        ]);
-    }
 
     public function category(Category $category){
 

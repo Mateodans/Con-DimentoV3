@@ -19,7 +19,7 @@ class imageSeeder extends Seeder
     public function run()
     {
         image::create([
-       'url'=> 'public/storage',
+       'url'=> 'public/storage/_fm01642.jpg',
        'imageable_id'=> recipe::first()->id,
        'imageable_type' => recipe::class
         ]);

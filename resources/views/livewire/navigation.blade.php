@@ -29,8 +29,8 @@
         </div>
         <div class="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
           <a href="/" class="flex flex-shrink-0 items-center">
-            <img class="block h-8 w-auto lg:hidden" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500" alt="Your Company">
-            <img class="hidden h-8 w-auto lg:block" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500" alt="Your Company">
+            <img class="block h-8 w-auto lg:hidden" src="/Imagen1.svg" alt="Your Company">
+            <img class="hidden h-8 w-auto lg:block" src="/Imagen1.svg" alt="Your Company">
           </a>
           <div class="hidden sm:ml-6 sm:block">
             <div class="flex space-x-4">

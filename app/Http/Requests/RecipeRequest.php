@@ -11,9 +11,11 @@ class RecipeRequest extends FormRequest
      *
      * @return bool
      */
+    
+    
     public function authorize()
     {
-        if($this->user()->id == auth()->user()->id){
+        if(auth()->user()){
             return true;
         }else{
             return false;
@@ -28,12 +30,13 @@ class RecipeRequest extends FormRequest
     public function rules()
     {
 
+        
         $recipe = $this->route()->parameters('recipe');
 
         $rules = [
             'title' => 'required',
             'status' => 'required|in:1,2',
-            'file' => 'required|image',
+            'image_id' => 'required|image',
         ];
 
         if ($recipe){
@@ -48,6 +51,7 @@ class RecipeRequest extends FormRequest
                 'category_id' => 'required',
             ]);
         }
+        
         return $rules;
     }
 }
