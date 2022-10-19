@@ -21,8 +21,6 @@ class recipeSeeder extends Seeder
     public function run()
     {
 
-        User::factory(1)->create();
-
         Recipe::create([
             'title'=>'Asado al estilo argentino',
             'body'=>'Esta es la mejor manera de hacer un buen asado al estilo Argento.',
