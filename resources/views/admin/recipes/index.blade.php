@@ -17,6 +17,8 @@
     </div>
 @endif
 
+<button type="submit" onclick="return confirm('¿Quiere Eliminar el receta?')" class=" text-white btn bg-red-800">Eliminar</button>
+
     {{-- @livewire('admin.recipes-index')  --}}
     <x-recipes-index :recipes="$recipes" />
 
