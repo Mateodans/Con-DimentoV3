@@ -60,7 +60,7 @@ class RecipeController extends Controller
         $recipe = Recipe::create($request->all());
 
         if($request->file('file')){
-            $url = Storage::put('recipes', $request->file('file'));
+            $url = Storage::put('public/recipes', $request->file('file'));
             $recipe->image()->create([
                 'url' => $url
             ]);
@@ -71,7 +71,7 @@ class RecipeController extends Controller
             if($request->ingredient){
                 $recipe->ingredients()->attach($request->ingredient);
             }
-        return redirect()->route('admin.recipes.index')->with('info', 'La receta se creó con éxito');
+        return redirect()->route('admin.recipes.index', compact('recipe'))->with('info', 'La receta se creó con éxito');
 
     }
 

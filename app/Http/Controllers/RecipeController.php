@@ -15,18 +15,18 @@ class RecipeController extends Controller
 
     public function index(){
 
-        if (request()->page) {
-            $key = 'recipes' . request()->page;
-        }else{
-            $key = 'recipes';
-        }
+        // if (request()->page) {
+        //     $key = 'recipes' . request()->page;
+        // }else{
+        //     $key = 'recipes';
+        // }
 
-        if (Cache::has($key)) {
-            $recipes = Cache::get($key);
-        } else {
-            $recipes = recipe::where('status', 1)->latest('id')->paginate(8);
-            Cache::put($key, $recipes);
-        }
+        // if (Cache::has($key)) {
+        //     $recipes = Cache::get($key);
+        // } else {
+            $recipes = recipe::where('status','=', '2')->latest('id')->paginate(8);
+            // Cache::put($key, $recipes);
+        
 
         return view('recipes.index', compact('recipes'));
     }

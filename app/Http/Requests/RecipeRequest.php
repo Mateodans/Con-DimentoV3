@@ -15,7 +15,7 @@ class RecipeRequest extends FormRequest
     
     public function authorize()
     {
-        if(auth()->user()){
+        if($this->user_id == auth()->user()->id){
             return true;
         }else{
             return false;
@@ -36,7 +36,7 @@ class RecipeRequest extends FormRequest
         $rules = [
             'title' => 'required',
             'status' => 'required|in:1,2',
-            'image_id' => 'required|image',
+            'file' => 'image',
         ];
 
         if ($recipe){
