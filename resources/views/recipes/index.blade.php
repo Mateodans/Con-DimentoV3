@@ -1,8 +1,15 @@
 <x-app-layout>
 
-    <div id="control-carousel" class="relative" data-carousel="static">
+    <script src="https://www.mercadopago.com.ar/integrations/v1/web-payment-checkout.js"
+    data-preference-id="213429554-9f248fc2-f7db-49d7-9b0e-12355cfe3b5e" data-source="button">
+    </script>
+
+<a href='https://cafecito.app/con-dimento' rel='noopener' target='_blank'><img srcset='https://cdn.cafecito.app/imgs/buttons/button_1.png 1x, https://cdn.cafecito.app/imgs/buttons/button_1_2x.png 2x, https://cdn.cafecito.app/imgs/buttons/button_1_3.75x.png 3.75x' src='https://cdn.cafecito.app/imgs/buttons/button_1.png' alt='Invitame un café en cafecito.app' /></a>
+
+    <div class="container py-8 min-h-screen mb-500">
+    <div id="control-carousel" class="relative rounded-lg" data-carousel="static">
         <!-- Carousel wrapper -->
-        <div class="relative h-56 overflow-hidden rounded-lg md:h-96">
+        <div class="relative h-56 overflow-hidden rounded-lg md:h-96 shadow-xl">
              <!-- Item 1 -->
             <div class="hidden duration-700 ease-in-out" data-carousel-item>
                 <span class="absolute text-2xl font-semibold text-white -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 sm:text-3xl dark:text-gray-800">First Slide</span>
@@ -44,7 +51,7 @@
         Todas Nuestras Recetas
     </h1>
 </div>
-<div class="container py-8 min-h-screen mb-500">
+
     <div class="p-10 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 gap-5">
         @foreach ($recipes as $recipe)
         <div>

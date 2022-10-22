@@ -10,7 +10,7 @@ class recipe extends Model
     use HasFactory;
 
     protected $guarded = ['id', 'created_at', 'updated_at'];
-    protected $fillabe = ['title', 'body', 'category_id', 'ingredient_id', 'status', 'image_id', 'steps'];
+    protected $fillabe = ['title', 'body', 'category_id', 'ingredient_id', 'status', 'steps'];
 
     public function user()
     {
