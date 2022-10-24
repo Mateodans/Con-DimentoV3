@@ -4,7 +4,7 @@
     data-preference-id="213429554-9f248fc2-f7db-49d7-9b0e-12355cfe3b5e" data-source="button">
     </script>
 
-<a href='https://cafecito.app/con-dimento' rel='noopener' target='_blank'><img srcset='https://cdn.cafecito.app/imgs/buttons/button_1.png 1x, https://cdn.cafecito.app/imgs/buttons/button_1_2x.png 2x, https://cdn.cafecito.app/imgs/buttons/button_1_3.75x.png 3.75x' src='https://cdn.cafecito.app/imgs/buttons/button_1.png' alt='Invitame un café en cafecito.app' /></a>
+    <a href='https://cafecito.app/con-dimento' rel='noopener' target='_blank'><img srcset='https://cdn.cafecito.app/imgs/buttons/button_1.png 1x, https://cdn.cafecito.app/imgs/buttons/button_1_2x.png 2x, https://cdn.cafecito.app/imgs/buttons/button_1_3.75x.png 3.75x' src='https://cdn.cafecito.app/imgs/buttons/button_1.png' alt='Invitame un café en cafecito.app' /></a>
 
     <div class="container py-8 min-h-screen mb-500">
     <div id="control-carousel" class="relative rounded-lg" data-carousel="static">
