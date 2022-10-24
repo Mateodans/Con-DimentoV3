@@ -18,8 +18,6 @@
     <div class="card-body">
 
         {!! Form::model($category, ['route' => ['admin.categories.update', $category], 'method' => 'put' ]) !!}
-
-        {{-- <form action="{{ route(['admin.categories.update']) }}" method="POST"> --}}
             @csrf
             <div class="form-group">
                 <label for="name">Name</label>
@@ -32,7 +30,6 @@
             <div class="form-group">
                 <button type="submit" class="btn btn-success">category update</button>
             </div>
-        {{-- </form> --}}
         {!! Form::close() !!}
 @stop
 

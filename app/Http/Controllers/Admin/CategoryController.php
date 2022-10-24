@@ -23,13 +23,11 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        // return view('admin.categories.index', compact('categories'));
 
         return view('admin.categories.index', [
             'categories' => Category::all()
         ]);
 
-        return view('admin.categories.index');
     }
 
     /**
@@ -100,7 +98,7 @@ class CategoryController extends Controller
             'internacional'=>'required'
         ]);
 
-        $category = Category::create($formFields);
+        $category -> update($formFields);
 
         return redirect()->route('admin.categories.edit', $category)->with('info', 'The categories was updated successfully');
     }

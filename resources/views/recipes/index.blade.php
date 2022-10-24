@@ -56,7 +56,7 @@
         @foreach ($recipes as $recipe)
         <div>
         <a href="{{route('recipes.show', $recipe)}}">
-            <div class="rounded overflow-hidden shadow-lg">
+            <div class="rounded overflow-hidden shadow-lg transition-shadow ease-in-out duration-200 hover:shadow-2xl ">
             <article class="w-full h-80 bg-cover bg-center rounded-lg @if($loop->first) md:col-span-2 @endif" style="background-image: url(
                 @if($recipe->image) {{Storage::url($recipe->image->url)}} @else https://cdn.pixabay.com/photo/2017/06/06/22/37/italian-cuisine-2378729_1280.jpg @endif)"></article>
             <div class="px-6 py-4">

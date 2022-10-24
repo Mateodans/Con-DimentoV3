@@ -23,19 +23,6 @@
                     <button type="submit" class="btn btn-success">Save</button>
                 </div>
             </form>
-            {{-- {!! Form::open(['route' => 'admin.categories.store']) !!}
-                <div class="form-group">
-                    {!! Form::label('name', 'Name') !!}
-                    {!! Form::text('name', null, ['class' => 'form-control', 'placeholder' => 'Enter the category name']) !!}
-                    {!! Form::select('nacionalidad', array('internacional' => 'internacional', 'nacional' => 'nacional'), 'internacional`');!!}
-                    @error('name')
-                        <span class="text-danger">{{ $message }}</span>
-                    @enderror
-                </div>
-                <div class="form-group">
-                    {!! Form::submit('Save', ['class' => 'btn btn-success']) !!}
-                </div>
-            {!! Form::close() !!} --}}
         </div>
     </div>
 @stop

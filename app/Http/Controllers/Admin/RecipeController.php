@@ -60,7 +60,7 @@ class RecipeController extends Controller
         $recipe = Recipe::create($request->all());
         $recipe->categories()->attach($request->category_id);
         $recipe->ingredients()->attach($request->ingredient_id);
-        
+
 
         if($request->file('file')){
             $url = Storage::put('public/recipes', $request->file('file'));
