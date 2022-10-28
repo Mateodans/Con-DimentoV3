@@ -10,9 +10,9 @@ Route::get('/', [RecipeController::class, 'index'])->name('recipes.index');
 
 Route::get('recipes/{recipe}', [RecipeController::class, 'show'])->name('recipes.show');
 
-Route::get('category/{category}', [RecipeController::class, 'category'])->name('recipes.category');
+Route::get('recipes/category/{category}', [RecipeController::class, 'category'])->name('recipes.category');
 
-Route::get('ingredient/{ingredient}', [RecipeController::class, 'ingredient'])->name('recipes.ingredient');
+Route::get('recipes/ingredient/{ingredient}', [RecipeController::class, 'ingredient'])->name('recipes.ingredient');
 
 Route::get('/admin', [HomeController::class, 'index'])->name('admin.index');
 

@@ -59,8 +59,7 @@ class RecipeController extends Controller
 
         $recipe = Recipe::create($request->all());
         $recipe->categories()->attach($request->category_id);
-        $recipe->ingredients()->attach($request->ingredient_id);
-
+        $recipe->ingredients()->attach($request->ingredients);
 
         if($request->file('file')){
             $url = Storage::put('public/recipes', $request->file('file'));
@@ -140,8 +139,8 @@ class RecipeController extends Controller
 
         }
 
-        if($request->ingredient){
-            $recipe->ingredients()->sync($request->ingredient);
+        if($request->ingredients){
+            $recipe->ingredients()->sync($request->ingredients);
         }
 
         return redirect()->route('admin.recipes.edit', $recipe)->with('info', 'La receta se actualizó con éxito');

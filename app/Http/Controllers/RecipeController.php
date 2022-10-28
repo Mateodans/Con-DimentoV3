@@ -48,7 +48,7 @@ class RecipeController extends Controller
 
     public function category(Category $category){
 
-        $recipes = $category->recipes()->wherePivot('category_id', '=', $category->id)->get();
+        $recipes = $category->recipes;
 
         return view('recipes.category', [
             'recipes' => $recipes,
@@ -58,7 +58,7 @@ class RecipeController extends Controller
 
     public function ingredient(ingredient $ingredient){
 
-        $recipes = $ingredient->recipes()->wherePivot('ingredient_id', '=', $ingredient->id)->get();
+        $recipes = $ingredient->recipes;
 
         // return $ingredient->recipes()->where()->get();
         return view('recipes.ingredient', [
