@@ -9,6 +9,7 @@ use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use App\Models\recipe;
 use App\Models\ingredientsrecipe;
+use App\Models\review;
 use App\Models\User;
 
 class recipeSeeder extends Seeder
@@ -39,6 +40,11 @@ class recipeSeeder extends Seeder
             'ingredient_id'=> ingredient::first()->id
         ]);
 
-
+        review::create([
+            'comment'=>'Esta receta es muy buena',
+            'rating'=>5,
+            'recipe_id'=>recipe::first()->id,
+            'user_id'=>User::first()->id
+        ]);
     }
 }

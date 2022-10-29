@@ -16,13 +16,13 @@ return new class extends Migration
         Schema::create('reviews', function (Blueprint $table) {
             $table->id();
 
-            $table->enum('value', [1, 2, 3, 4, 5]);
+            $table->text('comment');
+            $table->integer('rating');
 
+            $table->unsignedBigInteger('recipe_id');
             $table->unsignedBigInteger('user_id');
 
-            $table->unsignedBigInteger('reactionable_id');
-            $table->string('reactionable_type');
-
+            $table->foreign('recipe_id')->references('id')->on('recipes')->onDelete('cascade');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
 
             $table->timestamps();

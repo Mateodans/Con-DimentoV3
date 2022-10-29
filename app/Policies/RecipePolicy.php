@@ -5,6 +5,7 @@ namespace App\Policies;
 use App\Models\User;
 use Illuminate\Auth\Access\HandlesAuthorization;
 use App\Models\recipe;
+use App\Models\review;
 
 class RecipePolicy
 {
@@ -28,4 +29,12 @@ class RecipePolicy
         }
     }
 
+    public function review(User $user, Recipe $recipe)
+    {
+        if(review::where('user_id', $user->id)->where('recipe_id', $recipe->id)->count() == 0){
+            return false;
+        }else{
+            return true;
+        }
+    }
 }

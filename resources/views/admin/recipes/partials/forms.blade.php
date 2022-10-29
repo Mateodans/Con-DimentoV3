@@ -7,7 +7,9 @@
                 <span class="text-danger">{{$message}}</span>
             @enderror
         </div>
-        <div class="form-group">
+
+        <p class="font-weight-bold ">Body</p>
+        <div id="body" class="form-group">
             {!! Form::label('body', 'body') !!}
             {!! Form::textarea('body', null, ['class' => 'form-control', 'placeholder' => 'Enter the recipe descripcion']) !!}
 
@@ -15,6 +17,7 @@
                 <span class="text-danger">{{$message}}</span>
             @enderror
         </div>
+
         <div class="form-group">
             {!! Form::label('category_id', 'Category') !!}
             {!! Form::select('category_id', $categories, null, ['class' => 'form-control']) !!}
@@ -23,9 +26,9 @@
                 <span class="text-danger">{{$message}}</span>
             @enderror
         </div>
+
         <div class="form-group">
             <p class="font-weight-bold ">Ingredients</p>
-
             <div class="list-ingredients">
                 @foreach ($ingredients as $ingredient)
                     <div>
@@ -39,7 +42,8 @@
             @error('ingredients')
                 <span class="text-danger">{{$message}}</span>
             @enderror
-
+        </div>
+        
             <div class="form-group mt-3">
                 <p class="font-weight-bold">Estado</p>
 
@@ -77,8 +81,9 @@
                     <p>Characteristics that the image should have</p>
                 </div>
             </div>
-
-            <div class="form-group ">
+            
+            <p class=" font-weight-bold ">Steps</p>
+            <div id="steps" class="form-group ">
                 {!! Form::label('steps', 'Steps:', ['class' => 'mt-3']) !!}
                 {!! Form::textarea('steps', null, ['class' => 'form-control', 'placeholder' => 'Enter the steps of the recipe']) !!}
 

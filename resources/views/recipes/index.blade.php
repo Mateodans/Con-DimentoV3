@@ -65,7 +65,7 @@
             </a>
             <div class="px-6 pt-4 pb-2">
                 @foreach ($recipe->ingredients as $ingredient)
-                    <a class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2" href="{{route('recipes.show', $ingredient)}}">{{$ingredient->name}}</a>
+                    <a class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2" href="recipes/ingredient/{{$ingredient->id}}">{{$ingredient->name}}</a>
                 @endforeach
             </div>
             </div>

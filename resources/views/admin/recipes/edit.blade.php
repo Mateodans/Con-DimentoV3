@@ -49,7 +49,7 @@
     <script src="https://cdn.ckeditor.com/ckeditor5/35.2.0/classic/ckeditor.js"></script>
     <script>
         ClassicEditor
-            .create( document.querySelector( '#step' ) )
+            .create( document.querySelector( '#steps' ) )
             .catch( error => {
                 console.error( error );
             } );

@@ -46,9 +46,7 @@
                     @endforeach
                 </ul>
             </aside>
-
         </div>
-
+        @livewire('recipes-review', ['recipe' => $recipe]);
     </div>
-
 </x-app-layout>

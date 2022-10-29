@@ -8,7 +8,8 @@ use App\Models\ingredient;
 use Illuminate\Http\Request;
 use App\Models\recipe;
 use Illuminate\Support\Facades\Cache;
-
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 
 class RecipeController extends Controller
 {
@@ -59,6 +60,8 @@ class RecipeController extends Controller
     public function ingredient(ingredient $ingredient){
 
         $recipes = $ingredient->recipes;
+        $recipes = recipe::paginate(8);
+        
 
         // return $ingredient->recipes()->where()->get();
         return view('recipes.ingredient', [
@@ -66,5 +69,6 @@ class RecipeController extends Controller
             'ingredient' => $ingredient
         ]);
     }
+    
 
 }
