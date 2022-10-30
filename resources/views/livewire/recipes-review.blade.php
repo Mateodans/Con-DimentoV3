@@ -1,6 +1,5 @@
 <section class="mt-4 ">
-    <h1 class="font-bold text-3xl mb-2">valoracion</h1>
-
+    <h1 class="font-bold text-3xl mb-2">Valoracion</h1>
     @can('update', $recipe)
         <article class="my-4">
             <h2 class="font-bold text-2xl mt-4">Deja tu valoracion</h2>

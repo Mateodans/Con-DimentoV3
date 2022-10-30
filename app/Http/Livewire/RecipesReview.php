@@ -31,7 +31,7 @@ class RecipesReview extends Component
         $recipe->reviews()->create([
             'rating' => $this->rating,
             'comment' => $this->comment,
-            'user_id' => auth()->user()->id,
+
         ]);
     }
 }
