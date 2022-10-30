@@ -43,8 +43,7 @@
                 <span class="text-danger">{{$message}}</span>
             @enderror
         </div>
-        
-            <div class="form-group mt-3">
+        <div class="form-group mt-3">
                 <p class="font-weight-bold">Estado</p>
 
                 <label class="mr-2">
@@ -58,7 +57,7 @@
                 @error('status')
                     <span class="text-danger">{{$message}}</span>
                 @enderror
-            </div>
+        </div>
 
             <div class="row">
                 <div class="col">
@@ -81,7 +80,6 @@
                     <p>Characteristics that the image should have</p>
                 </div>
             </div>
-            
             <p class=" font-weight-bold ">Steps</p>
             <div id="steps" class="form-group ">
                 {!! Form::label('steps', 'Steps:', ['class' => 'mt-3']) !!}
