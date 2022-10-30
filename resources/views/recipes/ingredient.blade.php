@@ -7,9 +7,9 @@
         <x-card-recipe :recipe="$recipe" />
     @endforeach
 
-        <div>
+        {{-- <div>
             {{$recipes->links()}}
-        </div>
+        </div> --}}
 
     </div>
 
