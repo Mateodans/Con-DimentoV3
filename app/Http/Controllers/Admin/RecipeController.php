@@ -183,6 +183,40 @@ class RecipeController extends Controller
 
     }
 
+    public function clientUpdate(RecipeRequest $request, Recipe $recipe)
+    {
+
+        $this->authorize('author', $recipe);
+
+        $recipe->update($request->all());
+
+        if($request->file('file')){
+            $url = Storage::put('recipes', $request->file('file'));
+
+            if($recipe->image){
+                Storage::delete($recipe->image->url);
+
+                $recipe->image->update([
+                    'url' => $url
+                ]);
+            }else{
+                $recipe->image()->create([
+                    'url' => $url
+                ]);
+            }
+
+            Cache::flush();
+
+        }
+
+        if($request->ingredients){
+            $recipe->ingredients()->sync($request->ingredients);
+        }
+
+        return redirect()->route('recipe-create.edit', $recipe)->with('info', 'La receta se actualizó con éxito');
+
+    }
+
     /**
      * Remove the specified resource from storage.
      *

@@ -10,6 +10,7 @@
 
         <!-- Fonts -->
         <link rel="stylesheet" href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap">
+        <link rel="" href="https://cdn.sstatic.net/Sites/es/img/favicon.ico?v=a8def514be8a%22%3E"></link>
 
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
@@ -32,7 +33,7 @@
         @stack('modals')
 
         @livewireScripts
-        <script src="https://unpkg.com/flowbite@1.4.0/dist/flowbite.js" ></script>
+        <script src="https://unpkg.com/flowbite@1.4.0/dist/flowbite.js"></script>
 
     </body>
 </html>

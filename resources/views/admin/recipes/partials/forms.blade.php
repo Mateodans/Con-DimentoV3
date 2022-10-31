@@ -69,6 +69,7 @@
                         @endisset
                     </div>
                 </div>
+
                 <div class="col">
                     <div class="form-group">
                         {!! Form::label('file', 'Imagen de la receta') !!}
@@ -79,10 +80,9 @@
                     </div>
                     <p>Caracteristicas que la imagen tiene que tener</p>
                     <p>Debe tener en caso de ser posible mas 550px de ancho y 310px de largo</p>
-                    <p>En caso de no subir la receta sin ninguna imagen se subira con la que tiene a la izquierda que es la que esta por defecto</p>
                 </div>
             </div>
-            
+
             <div id="steps" class="form-group ">
                 {!! Form::label('steps', 'Pasos:', ['class' => 'mt-3']) !!}
                 {!! Form::textarea('steps', null, ['class' => 'form-control', 'placeholder' => 'Escriba los pasos a seguir de la receta']) !!}
