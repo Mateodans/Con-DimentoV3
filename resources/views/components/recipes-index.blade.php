@@ -6,29 +6,29 @@
 
 @if($recipes->count())
     <div class="card-body">
-        <table class="table table-striped">
-            <thead>
+        <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+            <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                 <tr>
-                    <th>ID</th>
-                    <th>Title</th>
-                    <th colspan="2"></th>
+                    <th class="p-4">ID</th>
+                    <th class="p-4">Titulo</th>
+                    <th colspan="2" class="p-4"></th>
                 </tr>
             </thead>
 
             <tbody>
                 @foreach ($recipes as $recipe)
-                    <tr>
+                    <tr class="  bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
                         <td>{{ $recipe->id }}</td>
                         <td>{{ $recipe->title }}</td>
                         <td width="10px">
-                            <a class="btn btn-primary btn-sm" href="{{ route('admin.recipes.edit', $recipe) }}">Edit</a>
+                            <a class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800" href="{{ route('admin.recipes.edit', $recipe) }}">Editar</a>
                         </td>
                         <td width="10px">
                             <form action="{{ route('admin.recipes.destroy', $recipe) }}" method="POST">
                                 @csrf
                                @method('delete')
 
-                                <button class="btn btn-danger btn-sm" type="submit">Delete</button>
+                                <button class="btn btn-danger btn-sm" type="submit">Borrar</button>
                             </form>
                         </td>
                     </tr>

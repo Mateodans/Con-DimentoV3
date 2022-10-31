@@ -10,7 +10,7 @@ class recipe extends Model
     use HasFactory;
 
     protected $guarded = ['id', 'created_at', 'updated_at'];
-    protected $fillabe = ['title', 'body', 'category_id', 'ingredient_id', 'status', 'steps'];
+    protected $fillable = ['title', 'body', 'category_id', 'ingredient_id', 'status', 'steps'];
 
     public function user()
     {
@@ -28,5 +28,10 @@ class recipe extends Model
 
     public function image(){
         return $this->morphOne(Image::class, 'imageable');
+    }
+
+    public function review()
+    {
+        return $this->hasOne(review::class, 'recipe_id');
     }
 }

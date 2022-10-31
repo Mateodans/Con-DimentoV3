@@ -4,8 +4,8 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
-        <link rel="apple-touch-icon" href="/storage/recipes/ExUcryzQE6wA1oHuDO5Z1D1dB3YenXElOcH4ugik.png">
-        <link rel="shortcut icon" href="/storage/recipes/ExUcryzQE6wA1oHuDO5Z1D1dB3YenXElOcH4ugik.png">
+        <link rel="apple-touch-icon" class="rounded-full " href="/storage/recipes/ExUcryzQE6wA1oHuDO5Z1D1dB3YenXElOcH4ugik.png">
+        <link rel="shortcut icon" class="rounded-full" href="/storage/recipes/ExUcryzQE6wA1oHuDO5Z1D1dB3YenXElOcH4ugik.png">
         <title>{{ config('app.name', 'Laravel') }}</title>
 
         <!-- Fonts -->

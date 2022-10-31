@@ -8,6 +8,7 @@ use App\Models\Recipe;
 use App\Models\Category;
 use App\Models\ingredient;
 use App\Http\Requests\RecipeRequest;
+use App\Models\User;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Cache;
 
@@ -34,6 +35,14 @@ class RecipeController extends Controller
          return view('admin.recipes.index', compact('recipes'));
     }
 
+    public function clienteIndex()
+    {
+
+        $recipes = Recipe::latest('id')->paginate(10);
+
+         return view('livewire/usuario-recipe', compact('recipes'));
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -45,7 +54,18 @@ class RecipeController extends Controller
         $categories = Category::pluck('name', 'id');
         $ingredients = Ingredient::all();
 
-        return view('admin.recipes.create', compact('categories', 'ingredients'));
+            $users = User::pluck('name', 'id');
+        return view('admin.recipes.create', compact('categories', 'ingredients', 'users'));
+
+    }
+
+    public function clienteCreate()
+    {
+        $categories = Category::pluck('name', 'id');
+        $ingredients = Ingredient::all();
+
+        $users = User::where('id', auth()->user()->id)->pluck('name', 'id');
+            return view('recipes.create', compact('categories', 'ingredients', 'users'));
     }
 
     /**
@@ -107,6 +127,16 @@ class RecipeController extends Controller
         return view('admin.recipes.edit', compact('recipe', 'categories', 'ingredients'));
     }
 
+    public function clienteEdit(Recipe $recipe)
+    {
+
+        $this->authorize('author', $recipe);
+
+        $categories = Category::pluck('name', 'id');
+        $ingredients = Ingredient::all();
+
+        return view('recipes.edit', compact('recipe', 'categories', 'ingredients'));
+    }
     /**
      * Update the specified resource in storage.
      *

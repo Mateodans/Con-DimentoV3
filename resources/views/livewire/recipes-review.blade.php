@@ -1,9 +1,14 @@
+@php $review = $recipe->review @endphp
 <section class="mt-4 ">
     <h1 class="font-bold text-3xl mb-2">Valoracion</h1>
-    @can('update', $recipe)
+    @if (auth()->user())
+    @isset($review)
+        @if (($review->user_id == auth()->user()->id))
+            <p class="text-gray-700 text-sm mb-4">No puedes valorar tu propia receta</p>
+        @endif
         <article class="my-4">
             <h2 class="font-bold text-2xl mt-4">Deja tu valoracion</h2>
-            @can('valued', $post)
+
                 <textarea wire:model="comment" class="form-input w-full" rows="3" placeholder="Deje su comentario"></textarea>
 
                 <div class="flex">
@@ -27,18 +32,19 @@
                         </li>
                     </ul>
                 </div>
-            @else
+                @elseif(auth()->user()->hasVoted($recipe))
                 <div class="flex items-center bg-blue-500 text-white text-sm font-bold px-4 py-3" role="alert">
                     <p class="text-center">Ya has valorado esta receta</p>
                 </div>
-            @endcan
+        @endisset
+            @endif
         </article>
-    @endcan
+    
 
+    @isset($review)
     <div class="card">
         <div class="card-body">
-            {{dd($recipe)}}
-                @foreach ($recipe->reviews as $review)
+                @foreach ($recipe->review as $review)
                 <p class="text-gray-800 text-xl">{{$review->count()}} valoraciones</p>
                     <article class="flex mb-4 text-gray-800">
                         <figure class="mr-4">
@@ -55,4 +61,11 @@
                 @endforeach
         </div>
     </div>
+    @else
+        <div class="card">
+            <div class="card-body">
+                <p class="text-gray-800 text-xl">No hay valoraciones</p>
+            </div>
+        </div>
+    @endisset
 </section>
