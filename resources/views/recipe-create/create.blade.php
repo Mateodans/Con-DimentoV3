@@ -92,12 +92,13 @@
                 <span class="text-danger">{{$message}}</span>
             @enderror
         </div>
-
+        <div>
             {!! Form::submit('Crear receta', ['class' => 'btn btn-primary']) !!}
 
         {!! Form::close() !!}
         </div>
     </div>
+</div>
 </x-app-layout>
 
 
