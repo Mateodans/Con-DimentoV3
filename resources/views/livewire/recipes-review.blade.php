@@ -25,14 +25,14 @@ $user = auth()->user();
                 @else
                 <article class="my-4">
                     <h2 class="font-bold text-2xl mt-4">Deja tu valoracion</h2>
-        
+
                         <textarea wire:model="comment" class="form-input w-full" rows="3" placeholder="Deje su comentario"></textarea>
-        
+
                         <div class="flex">
                             <button class="btn btn-primary mr-4" wire:click="store">Enviar</button>
-        
+
                             <ul class="flex text-2xl ml-4">
-                                
+
                                 <li wire:click="$set('rating', 1)" class="mr-1 cursor-pointer">
                                     <i class="fas fa-star text-{{ $rating >= 1 ? 'yellow' : 'gray' }}-400"></i>
                                 </li>

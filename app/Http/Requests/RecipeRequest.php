@@ -31,7 +31,7 @@ class RecipeRequest extends FormRequest
         $recipe = $this->route()->parameters('recipe');
 
         $rules = [
-            'title' => 'required|regex:/(Puto)(Trolo)(Gay)(Semen)(Milf)(Boludo)(Pelotudo)(Concha de tu madre)(mierda)/',
+            'title' => 'required|not_regex:/(Puto)(Trolo)(Gay)(Semen)(Milf)(Boludo)(Pelotudo)(Concha de tu madre)(mierda)/',
             'status' => 'required|in:1,2',
             'file' => 'image',
         ];
@@ -42,10 +42,10 @@ class RecipeRequest extends FormRequest
 
         if($this->status == 2){
             $rules = array_merge($rules, [
-                'body' => 'required|regex:/(Puto)(Trolo)(Gay)(Semen)(Milf)(Boludo)(Pelotudo)(Concha de tu madre)(mierda)/',
-                'steps' => 'required|regex:/(Puto)(Trolo)(Gay)(Semen)(Milf)(Boludo)(Pelotudo)(Concha de tu madre)(mierda)/',
-                'ingredients' => 'required|regex:/(Puto)(Trolo)(Gay)(Semen)(Milf)(Boludo)(Pelotudo)(Concha de tu madre)(mierda)/',
-                'category_id' => 'required|regex:/(Puto)(Trolo)(Gay)(Semen)(Milf)(Boludo)(Pelotudo)(Concha de tu madre)(mierda)/',
+                'body' => 'required|not_regex:/(Puto)(Trolo)(Gay)(Semen)(Milf)(Boludo)(Pelotudo)(Concha de tu madre)(mierda)/',
+                'steps' => 'required|not_regex:/(Puto)(Trolo)(Gay)(Semen)(Milf)(Boludo)(Pelotudo)(Concha de tu madre)(mierda)/',
+                'ingredients' => 'required',
+                'category_id' => 'required',
             ]);
         }
         return $rules;

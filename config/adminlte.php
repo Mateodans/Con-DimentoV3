@@ -318,7 +318,7 @@ return [
             'can'         => 'admin.home'
         ],
         [
-            'text'        => 'Users',
+            'text'        => 'Usarios',
             'route'         => 'admin.users.index',
             'icon'        => 'fas fa-users fa-faw',
             'can'         => 'admin.users.index'
@@ -329,28 +329,28 @@ return [
             'icon'        => 'fas fa-users-cog fa-faw',
             // 'can'         => 'admin.users.index'
         ],
-        ['header' => 'Administrator'],
+        ['header' => 'Administrador'],
         [
-            'text' => 'Categories',
+            'text' => 'Categorias',
             'route'  => 'admin.categories.index',
             'icon' => 'fab fa-fw fa-buffer',
             'can'         => 'admin.categories.index'
         ],
         [
-            'text' => 'Ingredients',
+            'text' => 'Ingredientes',
             'route'  => 'admin.ingredients.index',
             'icon' => 'fas fa-utensils fa-fw',
             'can'         => 'admin.ingredients.index'
         ],
-        ['header' => 'Opcion Recipes'],
+        ['header' => 'Opcion de Recetas'],
         [
-            'text'       => 'List of recipes',
+            'text'       => 'Lista de recetas',
             'route'        => 'admin.recipes.index',
             'icon' => 'fas fa-fw fa-clipboard',
             'can'         => 'admin.recipes.index'
         ],
         [
-            'text'       => 'Create a new recipe',
+            'text'       => 'Crear nueva recetas',
             'route'        => 'admin.recipes.create',
             'icon' => 'fas fa-fw fa-file',
             'can'         => 'admin.recipes.create'

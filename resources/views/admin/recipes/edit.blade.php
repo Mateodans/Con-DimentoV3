@@ -62,15 +62,25 @@
 
         document.getElementById("file").addEventListener('change', cambiarImagen);
 
-        function cambiarImagen(event){
-            var file = event.target.files[0];
+        $(document).ready(function(){
 
-            var reader = new FileReader();
-            reader.onload = (event) => {
-                document.getElementById("picture").setAttribute('src', event.target.result);
-            };
+    $('#file').change(function(e){
 
-            reader.readAsDataURL(file);
-        }
+  let file= e.target.files[0];
+
+  let reader= new FileReader();
+
+  reader.onload= (event) => {
+
+   $('#picture').attr('src', event.target.result)
+
+  };
+
+  reader.readAsDataURL(file);
+
+})
+
+});
+
     </script>
 @stop

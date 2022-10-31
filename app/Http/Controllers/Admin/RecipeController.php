@@ -65,7 +65,7 @@ class RecipeController extends Controller
         $ingredients = Ingredient::all();
 
         $users = User::where('id', auth()->user()->id)->pluck('name', 'id');
-            return view('recipes.create', compact('categories', 'ingredients', 'users'));
+            return view('users.edit', compact('categories', 'ingredients', 'users'));
     }
 
     /**
@@ -77,7 +77,13 @@ class RecipeController extends Controller
     public function store(RecipeRequest $request)
     {
 
-        $recipe = Recipe::create($request->all());
+        $recipe = Recipe::create([
+            'title' => $request->title,
+            'status' => $request->status,
+            'user_id' => $request->user_id,
+            'body' => $request->body,
+            'steps' => $request->steps,
+        ]);
         $recipe->categories()->attach($request->category_id);
         $recipe->ingredients()->attach($request->ingredients);
 

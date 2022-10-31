@@ -40,7 +40,7 @@
 @stop
 
 @section('js')
-    
+
     <script>
         ClassicEditor
             .create( document.querySelector( '#steps' ) )
