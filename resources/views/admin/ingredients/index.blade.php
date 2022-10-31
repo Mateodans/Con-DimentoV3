@@ -3,9 +3,9 @@
 @section('title', 'Con-Dimento')
 
 @section('content_header')
-    <a class="btn btn-secondary btn-sm float-right"  href="{{route('admin.ingredients.create')}}">New ingredient</a>
+    <a class="btn btn-secondary btn-sm float-right"  href="{{route('admin.ingredients.create')}}">Nuevo ingrediente</a>
 
-    <h1>Index of ingredients</h1>
+    <h1>Lista de ingredientes</h1>
 @stop
 
 @section('content')
@@ -29,7 +29,7 @@
                 <thead>
                     <tr>
                         <th>ID</th>
-                        <th>Name</th>
+                        <th>Nombre</th>
                         <th colspan="2"></th>
                     </tr>
                 </thead>
@@ -39,13 +39,13 @@
                             <td>{{$ingredient->id}}</td>
                             <td>{{$ingredient->name}}</td>
                             <td width="10px">
-                                <a class="btn btn-primary btn-sm" href="{{route('admin.ingredients.edit', $ingredient)}}">Edit</a>
+                                <a class="btn btn-primary btn-sm" href="{{route('admin.ingredients.edit', $ingredient)}}">Editar</a>
                             </td>
                             <td width="10px">
                                 <form action="{{route('admin.ingredients.destroy', $ingredient)}}" method="POST">
                                     @csrf
                                     @method('delete')
-                                    <button class="btn btn-danger btn-sm" type="submit">Delete</button>
+                                    <button class="btn btn-danger btn-sm" type="submit">Borrador</button>
                                 </form>
                             </td>
                         </tr>

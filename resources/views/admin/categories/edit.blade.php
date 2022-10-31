@@ -20,7 +20,7 @@
         {!! Form::model($category, ['route' => ['admin.categories.update', $category], 'method' => 'put' ]) !!}
             @csrf
             <div class="form-group">
-                <label for="name">Name</label>
+                <label for="name">Nombre</label>
                 <input type="text" name="name" id="name" class="form-control" placeholder="Nombre de la categoria" value="{{ old('name') }}">
             </div>
             <div class="form-group">
@@ -28,7 +28,7 @@
                 <input type="number" name="internacional" id="internacional" class="form-control" placeholder="Si la categoria es internacional pulse 1 si no lo es 0" value="{{ old('internacional') }}">
             </div>
             <div class="form-group">
-                <button type="submit" class="btn btn-success">category update</button>
+                <button type="submit" class="btn btn-success">Editar categoria</button>
             </div>
         {!! Form::close() !!}
 @stop

@@ -1,17 +1,17 @@
 
         <div class="form-group">
-            {!! Form::label('title', 'title') !!}
-            {!! Form::text('title', null, ['class' => 'form-control', 'placeholder' => 'Enter the recipe name']) !!}
+            {!! Form::label('title', 'Titulo') !!}
+            {!! Form::text('title', null, ['class' => 'form-control', 'placeholder' => 'Escriba el titulo de la receta']) !!}
 
             @error('title')
                 <span class="text-danger">{{$message}}</span>
             @enderror
         </div>
 
-        <p class="font-weight-bold ">Body</p>
+        
         <div id="body" class="form-group">
-            {!! Form::label('body', 'body') !!}
-            {!! Form::textarea('body', null, ['class' => 'form-control', 'placeholder' => 'Enter the recipe descripcion']) !!}
+            {!! Form::label('body', 'Descripcion') !!}
+            {!! Form::textarea('body', null, ['class' => 'form-control', 'placeholder' => 'Escriba la descripcion de la receta']) !!}
 
             @error('body')
                 <span class="text-danger">{{$message}}</span>
@@ -19,7 +19,7 @@
         </div>
 
         <div class="form-group">
-            {!! Form::label('category_id', 'Category') !!}
+            {!! Form::label('category_id', 'Categoria') !!}
             {!! Form::select('category_id', $categories, null, ['class' => 'form-control']) !!}
 
             @error('category_id')
@@ -28,7 +28,7 @@
         </div>
 
         <div class="form-group">
-            <p class="font-weight-bold ">Ingredients</p>
+            <p class="font-weight-bold ">Ingredientes</p>
             <div class="list-ingredients">
                 @foreach ($ingredients as $ingredient)
                     <div>
@@ -48,11 +48,11 @@
 
                 <label class="mr-2">
                     {!! Form::radio('status', 1, true) !!}
-                    Draft copy
+                    Borrador
                 </label>
                 <label class="mr-2">
                     {!! Form::radio('status', 2) !!}
-                    Published
+                    Publicado
                 </label>
                 @error('status')
                     <span class="text-danger">{{$message}}</span>
@@ -71,19 +71,21 @@
                 </div>
                 <div class="col">
                     <div class="form-group">
-                        {!! Form::label('file', 'Image of the recipe') !!}
+                        {!! Form::label('file', 'Imagen de la receta') !!}
                         {!! Form::file('file', ['accept' => 'image/*', 'class' => 'form-control-file']) !!}
                         @error('file')
                             <span class="text-danger">{{$message}}</span>
                         @enderror
                     </div>
-                    <p>Characteristics that the image should have</p>
+                    <p>Caracteristicas que la imagen tiene que tener</p>
+                    <p>Debe tener en caso de ser posible mas 550px de ancho y 310px de largo</p>
+                    <p>En caso de no subir la receta sin ninguna imagen se subira con la que tiene a la izquierda que es la que esta por defecto</p>
                 </div>
             </div>
-            <p class=" font-weight-bold ">Steps</p>
+            
             <div id="steps" class="form-group ">
-                {!! Form::label('steps', 'Steps:', ['class' => 'mt-3']) !!}
-                {!! Form::textarea('steps', null, ['class' => 'form-control', 'placeholder' => 'Enter the steps of the recipe']) !!}
+                {!! Form::label('steps', 'Pasos:', ['class' => 'mt-3']) !!}
+                {!! Form::textarea('steps', null, ['class' => 'form-control', 'placeholder' => 'Escriba los pasos a seguir de la receta']) !!}
 
                 @error('step')
                     <span class="text-danger">{{$message}}</span>

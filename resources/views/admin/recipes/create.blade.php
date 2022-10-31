@@ -4,7 +4,7 @@
 @section('title', 'Con-Dimento')
 
 @section('content_header')
-    <h1>Create Recipes</h1>
+    <h1>Crear Recetas</h1>
 @stop
 
 @section('content')
@@ -40,7 +40,7 @@
 @stop
 
 @section('js')
-    <script src="https://cdn.ckeditor.com/ckeditor5/35.2.0/classic/ckeditor.js"></script>
+    
     <script>
         ClassicEditor
             .create( document.querySelector( '#steps' ) )

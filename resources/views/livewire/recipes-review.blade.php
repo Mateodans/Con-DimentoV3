@@ -13,10 +13,9 @@ $user = auth()->user();
         <p class="text-gray-700 text-sm mb-4">No puedes valorar tu propia receta</p>
         @else
             @if ($recipe->user_id !== $user->id)
-            
                 @isset($user->recipe->reviews)
                     @foreach ($user->reviews as $user_review)
-                        @if ($user_review == $review)    
+                        @if ($user_review == $review)
                         <div class="flex items-center bg-blue-500 text-white text-sm font-bold px-4 py-3" role="alert">
                         <p class="text-center">Ya has valorado esta receta</p>
                         </div>
@@ -53,16 +52,11 @@ $user = auth()->user();
                         </div>
                     </article>
                 @endisset
-            
-            
-                
             @endif
         @endif
     @endforeach
     @endif
-        
-    
-    
+
 
     @isset($reviews)
     <div class="card">

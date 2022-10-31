@@ -3,7 +3,7 @@
 @section('title', 'Con-Dimento')
 
 @section('content_header')
-    <h1>Edit Ingredient</h1>
+    <h1>Editar Ingredientes</h1>
 @stop
 
 @section('content')
@@ -20,7 +20,7 @@
 
             @include('admin.ingredients.partials.forms')
 
-                {!! Form::submit('Update ingredient', ['class' => 'btn btn-primary']) !!}
+                {!! Form::submit('Editar ingrediente', ['class' => 'btn btn-primary']) !!}
             {!! Form::close() !!}
         </div>
     </div>

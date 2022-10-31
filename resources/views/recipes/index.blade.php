@@ -1,11 +1,5 @@
 <x-app-layout>
 
-    {{-- <script src="https://www.mercadopago.com.ar/integrations/v1/web-payment-checkout.js"
-    data-preference-id="213429554-9f248fc2-f7db-49d7-9b0e-12355cfe3b5e" data-source="button">
-    </script>
-
-    <a href='https://cafecito.app/con-dimento' rel='noopener' target='_blank'><img srcset='https://cdn.cafecito.app/imgs/buttons/button_1.png 1x, https://cdn.cafecito.app/imgs/buttons/button_1_2x.png 2x, https://cdn.cafecito.app/imgs/buttons/button_1_3.75x.png 3.75x' src='https://cdn.cafecito.app/imgs/buttons/button_1.png' alt='Invitame un café en cafecito.app' /></a> --}}
-
     <div class="container py-8 min-h-screen mb-500">
     <div id="control-carousel" class="relative rounded-lg" data-carousel="static">
         <!-- Carousel wrapper -->
@@ -16,7 +10,7 @@
                 <img src="/storage/recipes/PyzhTErDM2YbtEkd65JLUZ4qslaUtcgZzQq99BNS.jpg" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
             </div>
             <!-- Item 2 -->
-            <div class="hidden duration-700 ease-in-out" data-carousel-item>
+            <div class="hidden duration-700 ease-in-out" >
                 <img src="/storage/recipes/PyzhTErDM2YbtEkd65JLUZ4qslaUtcgZzQq99BNS.jpg"  class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
             </div>
             <!-- Item 3 -->
