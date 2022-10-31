@@ -10,6 +10,7 @@ use App\Models\User;
 class review extends Model
 {
     use HasFactory;
+    protected $fillable = ['rating'];
 
     public function user(){
         return $this->belongsTo(User::class);

@@ -30,8 +30,8 @@ class recipe extends Model
         return $this->morphOne(Image::class, 'imageable');
     }
 
-    public function review()
+    public function reviews()
     {
-        return $this->hasOne(review::class, 'recipe_id');
+        return $this->hasMany(review::class, 'recipe_id');
     }
 }
