@@ -65,7 +65,7 @@ class RecipeController extends Controller
         $ingredients = Ingredient::all();
 
         $users = User::where('id', auth()->user()->id)->pluck('name', 'id');
-            return view('users.edit', compact('categories', 'ingredients', 'users'));
+            return view('recipe-create.create', compact('categories', 'ingredients', 'users'));
     }
 
     /**
@@ -140,7 +140,7 @@ class RecipeController extends Controller
         $categories = Category::pluck('name', 'id');
         $ingredients = Ingredient::all();
 
-        return view('recipes.edit', compact('recipe', 'categories', 'ingredients'));
+        return view('recipe-create.edit', compact('recipe', 'categories', 'ingredients'));
     }
     /**
      * Update the specified resource in storage.
