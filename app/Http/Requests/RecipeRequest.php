@@ -31,7 +31,7 @@ class RecipeRequest extends FormRequest
         $recipe = $this->route()->parameters('recipe');
 
         $rules = [
-            'title' => 'required',
+            'title' => 'required|regex:/b(Puto)(Trolo)(Gay)(Semen)(Milf)(Boludo)(Pelotudo)(Concha de tu madre)(mierda)/b',
             'status' => 'required|in:1,2',
             'file' => 'image',
         ];
@@ -42,10 +42,10 @@ class RecipeRequest extends FormRequest
 
         if($this->status == 2){
             $rules = array_merge($rules, [
-                'body' => 'required',
-                'steps' => 'required',
-                'ingredients' => 'required',
-                'category_id' => 'required',
+                'body' => 'required|regex:/b(Puto)(Trolo)(Gay)(Semen)(Milf)(Boludo)(Pelotudo)(Concha de tu madre)(mierda)/b',
+                'steps' => 'required|regex:/b(Puto)(Trolo)(Gay)(Semen)(Milf)(Boludo)(Pelotudo)(Concha de tu madre)(mierda)/b',
+                'ingredients' => 'required|regex:/b(Puto)(Trolo)(Gay)(Semen)(Milf)(Boludo)(Pelotudo)(Concha de tu madre)(mierda)/b',
+                'category_id' => 'required|regex:/b(Puto)(Trolo)(Gay)(Semen)(Milf)(Boludo)(Pelotudo)(Concha de tu madre)(mierda)/b',
             ]);
         }
         return $rules;

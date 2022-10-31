@@ -77,7 +77,7 @@ class RecipeController extends Controller
     public function store(RecipeRequest $request)
     {
 
-
+        
         $recipe = Recipe::create($request->all());
         $recipe->categories()->attach($request->category_id);
         $recipe->ingredients()->attach($request->ingredients);
