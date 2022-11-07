@@ -8,6 +8,11 @@ Route::redirect('', 'usuario/recipes');
 
 Route::get('recipes', [RecipeController::class, 'clienteIndex'])->name('recipes.index');
 
+
 Route::get('recipes/create', [RecipeController::class, 'clienteCreate'])->name('recipes.create');
 
-Route::get('recipes/edit', [RecipeController::class, 'clienteEdit'])->name('recipes.edit');
+Route::post('recipes', [RecipeController::class, 'clienteStore'])->name('recipes.store');
+
+Route::get('recipes/{recipe}/edit', [RecipeController::class, 'clienteEdit'])->name('recipes.edit');
+
+Route::patch('recipes/{recipe}', [RecipeController::class, 'clientUpdate'])->name('recipes.update');

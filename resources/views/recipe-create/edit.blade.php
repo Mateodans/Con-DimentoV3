@@ -1,4 +1,6 @@
 <x-app-layout>
+    {!! Form::model($recipe,['route' => ['usuario.recipes.update', $recipe], 'autocomplete' => 'off', 'files' => true, 'method' => 'patch']) !!}
+    {!! Form::hidden('user_id', auth()->user()->id) !!}
     <div class="form-group">
         {!! Form::label('title', 'title') !!}
         {!! Form::text('title', null, ['class' => 'form-control', 'placeholder' => 'Enter the recipe name']) !!}
@@ -88,6 +90,11 @@
             @error('step')
                 <span class="text-danger">{{$message}}</span>
             @enderror
+        </div>
+        <div class="flex justify-end">
+            {!! Form::submit('Actualizar receta', ['class' => 'text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800 m-3 ']) !!}
+
+        {!! Form::close() !!}
         </div>
 
 </x-app-layout>

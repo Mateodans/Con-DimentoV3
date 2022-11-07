@@ -1,5 +1,5 @@
 <x-app-layout>
-    {!! Form::open(['route' => 'admin.recipes.store', 'autocomplete' => 'off', 'files' => true]) !!}
+    {!! Form::open(['route' => 'usuario.recipes.store', 'autocomplete' => 'off', 'files' => true]) !!}
     {!! Form::hidden('user_id', auth()->user()->id) !!}
 <div class="shadow sm:overflow-hidden sm:rounded-md">
 <div class="space-y-6 bg-white px-4 py-5 sm:p-6">

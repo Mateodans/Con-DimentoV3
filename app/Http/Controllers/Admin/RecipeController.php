@@ -9,6 +9,7 @@ use App\Models\Category;
 use App\Models\ingredient;
 use App\Http\Requests\RecipeRequest;
 use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Cache;
 
@@ -37,8 +38,9 @@ class RecipeController extends Controller
 
     public function clienteIndex()
     {
+        $user = Auth::user()->id;
 
-        $recipes = Recipe::latest('id')->paginate(10);
+        $recipes = Recipe::where('user_id', '=', $user)->paginate(10);
 
          return view('livewire/usuario-recipe', compact('recipes'));
     }
@@ -99,12 +101,34 @@ class RecipeController extends Controller
             if($request->ingredient){
                 $recipe->ingredients()->attach($request->ingredient);
             }
-            if ($recipe->user->role == 'admin') {
-                return redirect()->route('admin.recipes.index')->with('info', 'La receta se creó con éxito');
-            } else {
-                return redirect()->route('usuario.recipes.index')->with('info', 'La receta se creó con éxito');
-            }
+            return redirect()->route('admin.recipes.index')->with('info', 'La receta se creó con éxito');
         // return redirect()->route('admin.recipes.index', compact('recipe'))->with('info', 'La receta se creó con éxito');
+    }
+
+    public function clienteStore(RecipeRequest $request){
+        $recipe = Recipe::create([
+            'title' => $request->title,
+            'status' => $request->status,
+            'user_id' => $request->user_id,
+            'body' => $request->body,
+            'steps' => $request->steps,
+        ]);
+        $recipe->categories()->attach($request->category_id);
+        $recipe->ingredients()->attach($request->ingredients);
+
+        if($request->file('file')){
+            $url = Storage::put('public/recipes', $request->file('file'));
+            $recipe->image()->create([
+                'url' => $url
+            ]);
+        }
+
+        Cache::flush();
+
+            if($request->ingredient){
+                $recipe->ingredients()->attach($request->ingredient);
+            }
+        return redirect()->route('usuarios.recipes.index')->with('info', 'La receta se creó con éxito');
     }
 
     /**
@@ -139,12 +163,15 @@ class RecipeController extends Controller
     public function clienteEdit(Recipe $recipe)
     {
 
-        $this->authorize('author', $recipe);
-
-        $categories = Category::pluck('name', 'id');
-        $ingredients = Ingredient::all();
-
-        return view('recipe-create.edit', compact('recipe', 'categories', 'ingredients'));
+        $user = Auth::user()->id;
+        if ($user === $recipe->user_id) {
+            $categories = Category::pluck('name', 'id');
+            $ingredients = Ingredient::all();
+            return view('recipe-create.edit', compact('recipe', 'categories', 'ingredients'));
+        }else {
+            return redirect()->route('usuario.recipes.index');
+        }
+        
     }
     /**
      * Update the specified resource in storage.
@@ -158,7 +185,17 @@ class RecipeController extends Controller
 
         $this->authorize('author', $recipe);
 
-        $recipe->update($request->all());
+        $recipe->update($request->all([
+            'title',
+            'body',
+            'steps',
+            'status',
+            'user_id'
+        ]));
+
+        if($request->category_id){
+            $recipe->categories()->sync($request->category_id);
+        }
 
         if($request->file('file')){
             $url = Storage::put('recipes', $request->file('file'));
@@ -192,7 +229,16 @@ class RecipeController extends Controller
 
         $this->authorize('author', $recipe);
 
-        $recipe->update($request->all());
+        $recipe->update($request->all([
+            'title',
+            'body',
+            'steps',
+            'status',
+            'user_id'
+        ]));
+        if($request->category_id){
+            $recipe->categories()->sync($request->category_id);
+        }
 
         if($request->file('file')){
             $url = Storage::put('recipes', $request->file('file'));
@@ -217,7 +263,7 @@ class RecipeController extends Controller
             $recipe->ingredients()->sync($request->ingredients);
         }
 
-        return redirect()->route('recipe-create.edit', $recipe)->with('info', 'La receta se actualizó con éxito');
+        return redirect()->route('usuario.recipes.index', $recipe)->with('info', 'La receta se actualizó con éxito');
 
     }
 
