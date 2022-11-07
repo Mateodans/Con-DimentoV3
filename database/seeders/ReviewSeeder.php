@@ -28,7 +28,7 @@ class ReviewSeeder extends Seeder
             'rating' => 5,
             'comment' => 'Esta receta es muy buena',
             'recipe_id' => 1,
-            'user_id' => 1
+            'user_id' => 3
         ]);
 
         // review::create([

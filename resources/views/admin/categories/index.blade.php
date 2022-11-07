@@ -3,7 +3,7 @@
 @section('title', 'Con-Dimento')
 
 @section('content_header')
-    <h1>Lista de recetas</h1>
+    <h1>Lista de categorias</h1>
 @stop
 
 @section('content')

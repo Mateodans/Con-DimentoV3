@@ -7,7 +7,6 @@ use App\Http\Controllers\Admin\HomeController;
 
 Route::get('/', [RecipeController::class, 'index'])->name('recipes.index');
 
-
 Route::get('recipes/{recipe}', [RecipeController::class, 'show'])->name('recipes.show');
 
 Route::get('recipes/category/{category}', [RecipeController::class, 'category'])->name('recipes.category');

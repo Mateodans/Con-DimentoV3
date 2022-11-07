@@ -1,14 +1,10 @@
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
-@php 
+@php
 $reviews = $recipe->reviews;
 $user = auth()->user();
 @endphp
 <section class="mt-4 ">
     <h1 class="font-bold text-3xl mb-2">Valoracion</h1>
     @if (auth()->user())
-
-
-    @foreach ($reviews as $review)
         @if (($recipe->user_id == $user->id))
         <p class="text-gray-700 text-sm mb-4">No puedes valorar tu propia receta</p>
         @else
@@ -25,11 +21,11 @@ $user = auth()->user();
                 @else
                 <article class="my-4">
                     <h2 class="font-bold text-2xl mt-4">Deja tu valoracion</h2>
+                    <form method="GET" >
+                        <textarea wire:model="comment" class="block p-2.5 w-full  text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500  dark:border-gray-600 dark:placeholder-gray-400  dark:focus:ring-blue-500 dark:focus:border-blue-500 mb-2" rows="3" placeholder="Deje su comentario"></textarea>
 
-                        <textarea wire:model="comment" class="form-input w-full" rows="3" placeholder="Deje su comentario"></textarea>
-
-                        <div class="flex">
-                            <button class="btn btn-primary mr-4" wire:click="store">Enviar</button>
+                        <div class="flex items-center">
+                            <button wire:click="store" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Enviar</button>
 
                             <ul class="flex text-2xl ml-4">
 
@@ -50,11 +46,11 @@ $user = auth()->user();
                                 </li>
                             </ul>
                         </div>
+                    </form>
                     </article>
                 @endisset
             @endif
         @endif
-    @endforeach
     @endif
 
 

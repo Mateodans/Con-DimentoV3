@@ -20,7 +20,7 @@
 
                 @include('admin.ingredients.partials.forms')
 
-                {!! Form::submit('Create ingredient', ['class' => 'btn btn-primary']) !!}
+                {!! Form::submit('Crear ingrediente', ['class' => 'btn btn-primary']) !!}
             {!! Form::close() !!}
         </div>
     </div>

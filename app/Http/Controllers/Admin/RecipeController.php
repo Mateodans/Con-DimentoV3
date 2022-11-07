@@ -99,8 +99,12 @@ class RecipeController extends Controller
             if($request->ingredient){
                 $recipe->ingredients()->attach($request->ingredient);
             }
-        return redirect()->route('admin.recipes.index', compact('recipe'))->with('info', 'La receta se creó con éxito');
-
+            if ($recipe->user->role == 'admin') {
+                return redirect()->route('admin.recipes.index')->with('info', 'La receta se creó con éxito');
+            } else {
+                return redirect()->route('usuario.recipes.index')->with('info', 'La receta se creó con éxito');
+            }
+        // return redirect()->route('admin.recipes.index', compact('recipe'))->with('info', 'La receta se creó con éxito');
     }
 
     /**

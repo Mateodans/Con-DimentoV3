@@ -318,7 +318,7 @@ return [
             'can'         => 'admin.home'
         ],
         [
-            'text'        => 'Usarios',
+            'text'        => 'Usuarios',
             'route'         => 'admin.users.index',
             'icon'        => 'fas fa-users fa-faw',
             'can'         => 'admin.users.index'
@@ -350,7 +350,7 @@ return [
             'can'         => 'admin.recipes.index'
         ],
         [
-            'text'       => 'Crear nueva recetas',
+            'text'       => 'Crear nueva receta',
             'route'        => 'admin.recipes.create',
             'icon' => 'fas fa-fw fa-file',
             'can'         => 'admin.recipes.create'

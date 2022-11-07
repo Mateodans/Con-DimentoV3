@@ -16,7 +16,7 @@
             {!! Form::hidden('user_id', auth()->user()->id) !!}
             @include('admin.recipes.partials.forms')
 
-            {!! Form::submit('Create Recipe', ['class' => 'btn btn-primary']) !!}
+            {!! Form::submit('Crear receta', ['class' => 'btn btn-primary']) !!}
 
         {!! Form::close() !!}
         </div>

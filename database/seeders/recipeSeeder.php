@@ -26,7 +26,7 @@ class recipeSeeder extends Seeder
             'title'=>'Asado al estilo argentino',
             'body'=>'Esta es la mejor manera de hacer un buen asado al estilo Argento.',
             'steps'=>'1. Cortar la carne en trozos pequeños. 2. Salpimentar. 3. Cocinar en la parrilla.',
-            'user_id'=>User::first()->id
+            'user_id'=>User::find(2)->id
 
         ]);
         $recipe= recipe::find(1);
@@ -41,10 +41,10 @@ class recipeSeeder extends Seeder
         ]);
 
         review::create([
-            'comment'=>'Esta receta es muy buena',
+            'comment'=>'Esta receta es muy buena!!',
             'rating'=>5,
             'recipe_id'=>recipe::first()->id,
-            'user_id'=>User::first()->id
+            'user_id'=>User::find(2)->id
         ]);
     }
 }

@@ -8,7 +8,6 @@
             @enderror
         </div>
 
-        
         <div id="body" class="form-group">
             {!! Form::label('body', 'Descripcion') !!}
             {!! Form::textarea('body', null, ['class' => 'form-control', 'placeholder' => 'Escriba la descripcion de la receta']) !!}
@@ -78,7 +77,7 @@
                             <span class="text-danger">{{$message}}</span>
                         @enderror
                     </div>
-                    <p>Caracteristicas que la imagen tiene que tener</p>
+                    <p>Caracteristicas que la imagen tiene que tener:</p>
                     <p>Debe tener en caso de ser posible mas 550px de ancho y 310px de largo</p>
                 </div>
             </div>

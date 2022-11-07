@@ -1,16 +1,20 @@
 <x-app-layout>
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
+
     <div class="container py-8 min-h-screen mb-500">
         <h1 class="text-4xl font-bold text-gray-600">{{$recipe->title}}</h1>
+        <br>
 
         <div class="text-lg text-gray-500 mb-2">
             {{$recipe->body}}
         </div>
+        <br>
 
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
 
             <div class="lg:col-span-2 ">
-
+                 <br>
                 <figure>
                     @if ($recipe->image)
                         <img class="w-full h-80 object-cover object-center" src="{{Storage::url($recipe->image->url)}}" alt="">
@@ -47,6 +51,6 @@
                 </ul>
             </aside>
         </div>
-        @livewire('recipes-review', ['recipe' => $recipe]);
+        @livewire('recipes-review', ['recipe' => $recipe])
     </div>
 </x-app-layout>
