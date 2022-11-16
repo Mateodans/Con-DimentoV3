@@ -5,10 +5,13 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Ingredient;
+use Livewire\WithPagination;
 
 
 class IngredientController extends Controller
 {
+
+    use WithPagination;
 
     public function __construct(){
         $this->middleware('can:admin.ingredients.index')->only('index');

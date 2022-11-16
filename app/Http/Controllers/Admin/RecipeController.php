@@ -12,9 +12,12 @@ use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Cache;
+use Livewire\WithPagination;
 
 class RecipeController extends Controller
 {
+
+    use WithPagination;
 
     public function __construct(){
         $this->middleware('can:admin.recipes.index')->only('index');
@@ -128,7 +131,7 @@ class RecipeController extends Controller
             if($request->ingredient){
                 $recipe->ingredients()->attach($request->ingredient);
             }
-        return redirect()->route('usuarios.recipes.index')->with('info', 'La receta se creó con éxito');
+        return redirect()->route('usuario.recipes.index')->with('info', 'La receta se creó con éxito');
     }
 
     /**
@@ -171,7 +174,6 @@ class RecipeController extends Controller
         }else {
             return redirect()->route('usuario.recipes.index');
         }
-        
     }
     /**
      * Update the specified resource in storage.

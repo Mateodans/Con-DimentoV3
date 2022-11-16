@@ -26,13 +26,16 @@
                                 @csrf
                                @method('delete')
 
-                                <button class="font-medium text-red-600 dark:text-red-500 hover:underline" type="submit">Borrar</button>
+                                <button class="font-medium text-red-600 dark:text-red-500 hover:underline" onclick="return confirm('Estas seguro de que queres borrar?')" type="submit">Borrar</button>
                             </form>
                         </td>
                     </tr>
                 @endforeach
             </tbody>
         </table>
+    </div>
+    <div class="card-footer">
+        {{$recipes->links()}}
     </div>
 
 @else

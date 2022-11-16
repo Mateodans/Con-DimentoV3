@@ -6,9 +6,11 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Spatie\Permission\Models\Role;
+use Livewire\WithPagination;
 
 class UserController extends Controller
 {
+    use WithPagination;
 
     public function __construct(){
         $this->middleware('can:admin.users.index')->only('index');

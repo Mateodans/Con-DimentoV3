@@ -42,5 +42,8 @@
         </div>
     @endif
 
+    <div class="card-footer">
+        {{$recipes->links()}}
+    </div>
 </div>
 

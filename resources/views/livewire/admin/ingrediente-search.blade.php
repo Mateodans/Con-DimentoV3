@@ -24,13 +24,16 @@
                                 <form action="{{route('admin.ingredients.destroy', $ingredient)}}" method="POST">
                                     @csrf
                                     @method('delete')
-                                    <button class="btn btn-danger btn-sm" type="submit">Borrador</button>
+                                    <button class="btn btn-danger btn-sm" onclick="return confirm('Estas seguro de que queres borrar?')" type="submit">Borrar</button>
                                 </form>
                             </td>
                         </tr>
                     @endforeach
                 </tbody>
             </table>
+        </div>
+        <div class="card-footer">
+            {{$ingredients->links()}}
         </div>
     </div>
 </div>
