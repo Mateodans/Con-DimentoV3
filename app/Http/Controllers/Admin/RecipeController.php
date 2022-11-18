@@ -275,6 +275,19 @@ class RecipeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
+    public function clientDestroy(Recipe $recipe)
+    {
+
+        $this->authorize('author', $recipe);
+
+        $recipe->delete();
+
+        Cache::flush();
+
+        return redirect()->route('usuario.recipes.index')->with('info', 'La receta se eliminó con éxito');
+    }
+
     public function destroy(Recipe $recipe)
     {
 
