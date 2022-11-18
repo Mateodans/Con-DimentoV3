@@ -6,12 +6,11 @@
         <h1 class="text-4xl font-bold text-gray-600">{{$recipe->title}}</h1>
         <br>
 
-        <div class="text-lg text-gray-500 mb-2">
+        <div class="text-lg text-gray-500 mb-7">
             {{$recipe->body}}
         </div>
-        <br>
 
-        <h2 class="text-4xl font-bold text-gray-600">Ingredientes a usar: </h2>
+        <h2 class="text-2xl font-bold text-gray-600">Ingredientes a usar: </h2>
         <div class="px-6 pt-4 pb-2">
             @foreach ($recipe->ingredients as $ingredient)
                 <a class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2" href="recipes/ingredient/{{$ingredient->id}}">{{$ingredient->name}}</a>
