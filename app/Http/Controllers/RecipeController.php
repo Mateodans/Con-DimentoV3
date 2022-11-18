@@ -27,7 +27,6 @@ class RecipeController extends Controller
         // } else {
             $recipes = recipe::where('status','=', '2')->latest('id')->paginate(8);
             // Cache::put($key, $recipes);
-        
 
         return view('recipes.index', compact('recipes'));
     }
@@ -61,7 +60,6 @@ class RecipeController extends Controller
 
         $recipes = $ingredient->recipes;
         $recipes = recipe::paginate(8);
-        
 
         // return $ingredient->recipes()->where()->get();
         return view('recipes.ingredient', [
@@ -69,6 +67,5 @@ class RecipeController extends Controller
             'ingredient' => $ingredient
         ]);
     }
-    
 
 }

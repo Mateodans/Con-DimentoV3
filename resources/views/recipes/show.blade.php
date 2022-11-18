@@ -11,6 +11,13 @@
         </div>
         <br>
 
+        <h2 class="text-4xl font-bold text-gray-600">Ingredientes a usar: </h2>
+        <div class="px-6 pt-4 pb-2">
+            @foreach ($recipe->ingredients as $ingredient)
+                <a class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2" href="recipes/ingredient/{{$ingredient->id}}">{{$ingredient->name}}</a>
+            @endforeach
+        </div>
+
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
 
             <div class="lg:col-span-2 ">

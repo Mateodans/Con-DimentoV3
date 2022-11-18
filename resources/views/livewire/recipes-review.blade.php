@@ -21,8 +21,10 @@ $user = auth()->user();
                 @else
                 <article class="my-4">
                     <h2 class="font-bold text-2xl mt-4">Deja tu valoracion</h2>
+                    <br>
                     <form method="GET" >
                         <textarea wire:model="comment" class="block p-2.5 w-full  text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500  dark:border-gray-600 dark:placeholder-gray-400  dark:focus:ring-blue-500 dark:focus:border-blue-500 mb-2" rows="3" placeholder="Deje su comentario"></textarea>
+                        <br>
 
                         <div class="flex items-center">
                             <button wire:click="store" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Enviar</button>
@@ -57,7 +59,7 @@ $user = auth()->user();
     @isset($reviews)
     <div class="card">
         <div class="card-body">
-            <p class="text-gray-800 text-xl">{{$reviews->count()}} valoraciones</p>
+            <p class="text-gray-800 text-xl mb-3">{{$reviews->count()}} valoraciones</p>
                 @foreach ($reviews as $review)
                     <article class="flex mb-4 text-gray-800">
                         <figure class="mr-4">

@@ -15,7 +15,7 @@ class RecipeSearch extends Component
     public function render()
     {
 
-        $recipes = recipe::where('title', 'LIKE', '%' . $this->search . '%')
+        $recipes = recipe::where('title',  'LIKE', '%' . $this->search . '%' )
             ->paginate();
 
         return view('livewire.admin.recipe-search', compact('recipes'));
