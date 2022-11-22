@@ -24,7 +24,7 @@
                             <a class="font-medium text-blue-600 dark:text-blue-500 hover:underline" href="{{ route('usuario.recipes.edit', $recipe) }}">Editar</a>
                         </td>
                         <td width="10px">
-                            <form action="{{ route('usuario.recipes.index', $recipe) }}" method="POST">
+                            <form action="{{ route('usuario.recipes.destroy', $recipe) }}" method="POST">
                                 @csrf
                                @method('delete')
 

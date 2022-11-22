@@ -13,6 +13,10 @@ Route::get('recipes/create', [RecipeController::class, 'clienteCreate'])->name('
 
 Route::post('recipes', [RecipeController::class, 'clienteStore'])->name('recipes.store');
 
+
 Route::get('recipes/{recipe}/edit', [RecipeController::class, 'clienteEdit'])->name('recipes.edit');
+Route::delete('recipes/{recipe}', [RecipeController::class, 'clientDestroy'])->name('recipes.destroy');
 
 Route::patch('recipes/{recipe}', [RecipeController::class, 'clientUpdate'])->name('recipes.update');
+
+
