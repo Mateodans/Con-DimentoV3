@@ -35,8 +35,9 @@ class RecipeController extends Controller
 
         if(auth()->user()){
             // $category = $recipe->categories()->wherePivot('recipe_id', '=', $recipe->id)->get();
-            $category = $recipe->categories->random();
-            $similar = recipe::where('id', '=', $category->id)->get();
+            $category = $recipe->categories->first()->pivot->category_id;
+            $similar = Category::find($category)->recipes()->get();
+            // $similar = recipe::where('id', '=', $category->pivot->category_id)->get();
             return view('recipes.show', [
                 'recipe' => $recipe,
                 'similar' => $similar

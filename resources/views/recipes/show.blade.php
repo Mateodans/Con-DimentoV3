@@ -43,6 +43,9 @@
                 </h1>
                 <ul>
                     @foreach ($similar as $similares)
+                    @if($similares->id == $recipe->id)
+                    @continue
+                    @endif
                     <li class="mb-4">
                         <a class="flex" href="{{route('recipes.show', $similares)}}">
                             @if ($similares->image)
