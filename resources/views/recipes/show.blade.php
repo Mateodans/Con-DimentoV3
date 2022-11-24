@@ -23,9 +23,9 @@
                  <br>
                 <figure>
                     @if ($recipe->image)
-                        <img class="w-full h-80 object-cover object-center" src="{{Storage::url($recipe->image->url)}}" alt="">
+                        <img class="w-full h-80 object-cover object-center rounded-md" src="{{Storage::url($recipe->image->url)}}" alt="">
                     @else
-                        <img class="w-full h-80 object-cover object-center" src="https://cdn.pixabay.com/photo/2017/06/06/22/37/italian-cuisine-2378729_1280.jpg" alt="">
+                        <img class="w-full h-80 object-cover object-center rounded-md" src="https://cdn.pixabay.com/photo/2017/06/06/22/37/italian-cuisine-2378729_1280.jpg" alt="">
                     @endif
                 </figure>
 
@@ -36,7 +36,7 @@
             </div>
 
             <aside>
-                <h1 class="text-2xl font-bold text-gray-600 mb-4s">Mas en
+                <h1 class="text-2xl font-bold text-gray-600 mb-4">Mas en
                 @foreach ($recipe->categories as $category)
                 {{$category->name}}
                 @endforeach
@@ -49,9 +49,9 @@
                     <li class="mb-4">
                         <a class="flex" href="{{route('recipes.show', $similares)}}">
                             @if ($similares->image)
-                                <img class="w-36 h-20 object-cover object-center" src="{{Storage::url($similares->image->url)}}" alt="">
+                                <img class="w-36 h-20 object-cover object-center rounded-lg " src="{{Storage::url($similares->image->url)}}" alt="">
                             @else
-                                <img class="w-36 h-20 object-cover object-center" src="https://cdn.pixabay.com/photo/2017/06/06/22/37/italian-cuisine-2378729_1280.jpg" alt="">
+                                <img class="w-36 h-20 object-cover object-center rounded-lg" src="https://cdn.pixabay.com/photo/2017/06/06/22/37/italian-cuisine-2378729_1280.jpg" alt="">
                             @endif
                             <span class="ml-2 text-gray-600">{{$similares->title}}</span>
                         </a>
