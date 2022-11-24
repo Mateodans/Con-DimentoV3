@@ -37,7 +37,7 @@
                                 <form action="{{ route('admin.roles.destroy', $role) }}" method="POST">
                                     @csrf
                                     @method('delete')
-                                    <button class="btn btn-danger btn-sm" onclick="return confirm('Estas seguro de que queres borrar?')"  type="submit">Borrador</button>
+                                    <button class="btn btn-danger btn-sm" onclick="return confirm('Estas seguro de que queres borrar?')"  type="submit">Borrar</button>
                                 </form>
                             </td>
                         </tr>

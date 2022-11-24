@@ -55,7 +55,7 @@ class CategoryController extends Controller
         ]);
         $category = Category::create($formFields);
 
-        return redirect()->route('admin.categories.edit', $category)->with('info', 'The category was created successfully');
+        return redirect()->route('admin.categories.edit', $category)->with('info', 'La categoria se creo con exito');
     }
 
     /**
@@ -100,7 +100,7 @@ class CategoryController extends Controller
 
         $category -> update($formFields);
 
-        return redirect()->route('admin.categories.edit', $category)->with('info', 'The categories was updated successfully');
+        return redirect()->route('admin.categories.edit', compact('category'))->with('info', 'La categoria se actualizo con exito');
     }
 
     /**
@@ -113,6 +113,6 @@ class CategoryController extends Controller
     {
         $category->delete();
 
-        return redirect()->route('admin.categories.index')->with('info', 'The category was deleted successfully');
+        return redirect()->route('admin.categories.index')->with('info', 'La categoria fue eliminada con exito');
     }
 }

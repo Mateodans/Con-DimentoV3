@@ -15,6 +15,7 @@
 
             <tbody>
                 @foreach ($recipes as $recipe)
+                @if($recipe->user_id == Auth::user()->id)
                     <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
                         <td class="py-4 px-6">{{ $recipe->id }}</td>
                         <td class="py-4 px-6">{{ $recipe->title }}</td>
@@ -30,6 +31,7 @@
                             </form>
                         </td>
                     </tr>
+                @endif
                 @endforeach
             </tbody>
         </table>

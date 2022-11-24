@@ -21,7 +21,8 @@
             @csrf
             <div class="form-group">
                 <label for="name">Nombre</label>
-                <input type="text" name="name" id="name" class="form-control" placeholder="Nombre de la categoria" value="{{ old('name') }}">
+                {!! Form::text('name', old('name'), ['class'=>'mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm', 'placeholder' => 'Escriba el nombre de la categoria' ]) !!}
+                {{-- <input type="text" name="name" id="name" class="form-control" placeholder="Nombre de la categoria" value="{{ old('name') }}"> --}}
             </div>
             <div class="form-group">
                 <label for="internacional">Internacional</label>

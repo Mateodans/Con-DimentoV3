@@ -103,7 +103,8 @@
                     <div id="steps">
                         <label for="steps" class="block text-sm font-medium text-gray-700">Pasos de la receta</label>
                         <div class="mt-1">
-                          <textarea id="steps" name="steps" rows="3" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" placeholder="Escribí los pasos de tu receta"></textarea>
+                          {{-- <textarea id="steps" name="steps" rows="3" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" placeholder="Escribí los pasos de tu receta"></textarea> --}}
+                          {!! Form::textarea('steps', old('steps'), ['class'=>"mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"]) !!}
                           @error('steps')
                               <span class="text-danger">{{$message}}</span>
                           @enderror
